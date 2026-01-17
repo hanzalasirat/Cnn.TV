@@ -13,35 +13,129 @@
      <link rel="stylesheet" href="./assets/Bootstrapt/css/bootstrap-theme.min.css">
      <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </head>
+<style>
+  .top-links a{
+    text-decoration: none;
+  }
+  .top-links h5{
+    color: black;
+  }
+</style>
 <body>
     <!-- Header Section -->
     <div id="header"></div>
 
   <!-- all contante of the pagse -->
     <main>
+
+      <!-- Top Links -->
+      <div class="container">
+        <div class="top-links d-flex flex-wrap align-items-center gap-2">
+          <a href="#"><h5><span style="color: red;">Live Updates</span> : Trump presidency</h5></a>
+          <span class="separator">|</span>
+          <a href="#"><h5><span style="color: red;">Trending</span> : NFL playoffs</h5></a>
+          <span class="separator">|</span>
+          <a href="#"><h5>Trump tariff threats</h5></a>
+          <span class="separator">|</span>
+          <a href="#"><h5>Credit background checks</h5></a>
+          <span class="separator">|</span>
+          <a href="#"><h5>‘Great Health Care Plan’</h5></a>
+        </div>
+      </div>
+
+      <!-- First Section  -->
+
+    <section class="container my-4">
+      <div class="row">
+
+        <!-- Left Sidebar -->
+        <aside class="col-lg-3 col-md-4 d-none d-md-block">
+          <h5>Top Stories</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">US Politics Updates</a></li>
+            <li><a href="#">Global Economy News</a></li>
+            <li><a href="#">Health & Science</a></li>
+            <li><a href="#">Tech & Innovation</a></li>
+          </ul>
+        </aside>
+
+        <!-- Middle: Main News -->
+        <main class="col-lg-6 col-md-8">
+          <h2>Latest News</h2>
+
+          <!-- News Article 1 -->
+          <div class="card mb-3">
+            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="News Image">
+            <div class="card-body">
+              <h5 class="card-title">Breaking: Major Political Event</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+              <a href="#" class="btn btn-sm btn-primary">Read More</a>
+            </div>
+          </div>
+
+          <!-- News Article 2 -->
+          <div class="card mb-3">
+            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="News Image">
+            <div class="card-body">
+              <h5 class="card-title">Sports: Exciting Game Highlights</h5>
+              <p class="card-text">Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+              <a href="#" class="btn btn-sm btn-primary">Read More</a>
+            </div>
+          </div>
+
+          <!-- News Article 3 -->
+          <div class="card mb-3">
+            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="News Image">
+            <div class="card-body">
+              <h5 class="card-title">Business: Market Updates</h5>
+              <p class="card-text">Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+              <a href="#" class="btn btn-sm btn-primary">Read More</a>
+            </div>
+          </div>
+
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="col-lg-3 d-none d-lg-block">
+          <h5>Trending</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Tech Stocks Rising</a></li>
+            <li><a href="#">Celebrity News</a></li>
+            <li><a href="#">Travel Tips</a></li>
+            <li><a href="#">Health Advice</a></li>
+          </ul>
+          <div class="mt-4">
+            <h5>Follow Us</h5>
+            <a href="#" class="text-dark fs-5 me-2"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-dark fs-5 me-2"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-dark fs-5 me-2"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-dark fs-5"><i class="bi bi-youtube"></i></a>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+
             
     </main>
 
-    <!-- Footer Section -->
-    <div id="footer"></div>
-    
-    <script>
-        fetch('./components/header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading header:', error));
 
 
-      fetch('./components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading header:', error));
+<script src="./assets/js/script.js"></script>
+<div id="header"></div>
+<script>
+fetch('./components/header.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('header').innerHTML = html;
 
-    </script>
+    // Initialize the header JS after content is added
+    initHeader();
+  })
+  .catch(err => console.error('Error loading header:', err));
+</script>
+
 
 </body>
 </html>

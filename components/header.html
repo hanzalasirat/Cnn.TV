@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header</title>
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <div class="container">
+    <!-- Mobile Toggle (Bootstrap collapse) -->
+        <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    <!-- Mega Menu Toggle -->
+    <div class="nav-item dropdown position-static">
+        <span class="mega-toggle navbar-toggler-icon ms-2" style="cursor:pointer;"></span>
+            <!-- Mega Menu -->
+            <div class="dropdown-menu w-100 border-0 shadow mega-menu">
+            <div class="container py-4">
+
+                <!-- Top: Search Box -->
+                <div class="mega-search mb-4">
+                <form class="d-flex" action="search.html" method="GET">
+                    <input type="text" name="q" class="form-control me-2" placeholder="Search CNN..." required>
+                    <button class="btn btn-outline-secondary" type="submit">
+                    <i class="bi bi-search"></i>
+                    </button>
+                </form>
+                </div>
+
+                <!-- Main: Sections -->
+                <div class="row g-4">
+                <div class="col-lg-3">
+                    <h6 class="fw-bold">US</h6>
+                    <a class="dropdown-item" href="#">Crime + Justice</a>
+                    <a class="dropdown-item" href="#">Politics</a>
+                    <a class="dropdown-item" href="#">Education</a>
+                    <a class="dropdown-item" href="#">Environment</a>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold">World</h6>
+                    <a class="dropdown-item" href="#">Africa</a>
+                    <a class="dropdown-item" href="#">Asia</a>
+                    <a class="dropdown-item" href="#">Europe</a>
+                    <a class="dropdown-item" href="#">Middle East</a>
+                    <a class="dropdown-item" href="#">Americas</a>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold">Business</h6>
+                    <a class="dropdown-item" href="#">Tech</a>
+                    <a class="dropdown-item" href="#">Markets</a>
+                    <a class="dropdown-item" href="#">Media</a>
+                    <a class="dropdown-item" href="#">Videos</a>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold">Sports</h6>
+                    <a class="dropdown-item" href="#">Football</a>
+                    <a class="dropdown-item" href="#">Basketball</a>
+                    <a class="dropdown-item" href="#">Olympics</a>
+                    <a class="dropdown-item" href="#">Tennis</a>
+                </div>
+                
+                </div>
+            </div>
+                <!-- Bottom: Social Media -->
+                <div class="social-mid mt-4  d-flex gap-3">
+                <h6>Follow CNN</h6>  
+                <a href="#" class="text-dark fs-5"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="text-dark fs-5"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="text-dark fs-5"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-dark fs-5"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+
+    </div>
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold text-danger fs-3 ms-3" href="#">CNN</a>
+
+    <!-- Navbar Collapse -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+        <!-- Left Menu -->
+        <ul class="navbar-nav me-auto">
+
+            <li class="nav-item"><a class="nav-link" href="#">US</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">World</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Politics</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Business</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Health</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Entertainment</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Underscored</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Style</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Travel</a></li>
+
+            <!-- More Dropdown -->
+            <li class="nav-item dropdown dropdown-hover">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                    More
+                </a>
+                <ul class="dropdown-menu p-3">
+                    <li><a class="dropdown-item" href="#">Russia–Ukraine</a></li>
+                    <li><a class="dropdown-item" href="#">Israel–Hamas</a></li>
+                    <li><a class="dropdown-item" href="#">Game</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- Right Menu -->
+        <div class="d-flex gap-3 align-items-center">
+        <!-- Listen -->
+        <a href="#" class="nav-link d-flex align-items-center gap-1">
+            <span style="background-color: rgb(171, 60, 60); color:white; font-size: 12px;">NEW</span>
+            <span class="d-none d-lg-inline">Watch</span>
+        </a> 
+
+        <!-- Listen -->
+        <a href="#" class="nav-link d-flex align-items-center gap-1">
+            <i class="bi bi-headphones"></i>
+            <span class="d-none d-lg-inline">Listen</span>
+        </a>
+
+
+        <!-- Search Toggle -->
+        <a href="#" class="nav-link d-flex align-items-center gap-1 search-toggle">
+        <i class="bi bi-search"></i>
+        </a>
+
+
+        <a href="#" class="btn btn-danger btn-sm">Subscribe</a>
+        <a href="#" class="btn btn-outline-dark btn-sm">Sign in</a>
+
+        </div>
+    </div>
+  </div>
+</nav>
+</header>
+<!-- Custom JS -->
+<script src="../assets/js/script.js"></script>
+</body>
+</html>

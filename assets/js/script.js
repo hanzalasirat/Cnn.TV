@@ -1,18 +1,51 @@
-fetch('../components/header.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('header').innerHTML = data;
-  })
-  .catch(error => console.error('Error loading header:', error));
+function initHeader() {
+  const header = document.getElementById('header');
+  if (!header) return;
 
+  const megaToggle = header.querySelector(".mega-toggle");
+  const megaMenu = header.querySelector(".mega-menu");
+  const searchToggle = header.querySelector(".search-toggle");
+  const searchInput = megaMenu?.querySelector("input[name='q']");
 
-fetch('../components/footer.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('footer').innerHTML = data;
-  })
-  .catch(error => console.error('Error loading header:', error));
+  if (!megaMenu) return;
 
+  function openMegaMenu() {
+    megaMenu.classList.add("mega-menu-open");
+    searchInput?.focus();
+  }
 
-  // all header js code 
+  function closeMegaMenu() {
+    megaMenu.classList.remove("mega-menu-open");
+  }
 
+  if (megaToggle) {
+    megaToggle.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      megaMenu.classList.toggle("mega-menu-open");
+    });
+  }
+
+  if (searchToggle) {
+    searchToggle.addEventListener("click", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      openMegaMenu();
+    });
+  }
+
+  document.addEventListener("click", e => {
+    if (!megaMenu.contains(e.target) &&
+        !megaToggle.contains(e.target) &&
+        !searchToggle.contains(e.target)) {
+      closeMegaMenu();
+    }
+  });
+
+  header.querySelectorAll('.mega-menu form').forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('You searched for: ' + form.q.value);
+    });
+  });
+}

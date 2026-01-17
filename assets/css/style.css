@@ -1,0 +1,106 @@
+/* =========================
+   HEADER / NAVBAR STYLES
+========================= */
+.container {
+    border-bottom: 1px solid black;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0;
+}
+
+.dropdown-item {
+    font-size: 16px;
+    padding: 2px 0; /* moved from mega menu */
+}
+
+ul .nav-link:hover {
+    border-bottom: 2px solid black;
+    top: 0;
+    margin-top: 0;
+}
+
+/* =========================
+   MEGA MENU STYLES
+========================= */
+/* Mega menu hidden by default */
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Mega menu visible */
+.mega-menu.mega-menu-open {
+    display: block !important;
+}
+
+/* Mega menu full width */
+.navbar .mega-menu {
+    border-radius: 0;
+}
+
+.mega-menu .form-control {
+    border-radius: 5px;
+}
+
+.mega-menu h6 {
+    font-size: 14px;
+}
+
+.social-mid {
+    justify-content: center;
+    align-items: center;
+}
+
+.social-mid h6 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-items: center;
+}
+
+
+/* Mobile: show mega toggle (<768px) */
+@media (max-width: 950px) {
+    .mega-toggle {
+        display: none !important;
+    }
+}
+
+/* Optional: show on large desktop (≥1200px) */
+@media (min-width: 1200px) {
+    .mega-toggle {
+        display: inline-block !important;
+    }
+}
+
+
+
+
+
+/* =========================
+   SEARCH BAR STYLES
+========================= */
+.search-box {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: none;
+    z-index: 1050;
+}
+
+.search-box.active {
+    display: block;
+}
