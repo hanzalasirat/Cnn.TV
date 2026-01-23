@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN News - January 20, 2026</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --cnn-red: #cc0000;
+            --cnn-dark: #0c0c0c;
+            --cnn-light: #f5f5f5;
+            --cnn-gray: #666;
+            --cnn-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .cnn-header {
+            background-color: #000;
+            border-bottom: 4px solid var(--cnn-red);
+            padding: 10px 0;
+        }
+        
+        .cnn-logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+        
+        .cnn-red {
+            color: var(--cnn-red);
+        }
+        
+        .cnn-white {
+            color: white;
+        }
+        
+        .cnn-nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            padding: 0;
+        }
+        
+        .nav-link-cnn {
+            color: #333;
+            font-weight: 600;
+            padding: 20px 15px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .nav-link-cnn:hover, .nav-link-cnn.active {
+            color: var(--cnn-red);
+            border-bottom: 3px solid var(--cnn-red);
+            background-color: rgba(204,0,0,0.05);
+        }
+        
+        /* Breaking News Ticker */
+        .breaking-ticker {
+            background-color: var(--cnn-red);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+        
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .breaking-label {
+            background-color: black;
+            color: white;
+            padding: 4px 12px;
+            font-weight: bold;
+            margin-right: 20px;
+            border-radius: 3px;
+        }
+        
+        /* Hero Section */
+        .hero-container {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero-tag {
+            background-color: var(--cnn-red);
+            display: inline-block;
+            padding: 5px 15px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+        
+        /* Image Grid Layout */
+        .image-grid-item {
+            position: relative;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .image-grid-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .image-grid-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 30px 20px 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .image-tag {
+            background-color: var(--cnn-red);
+            color: white;
+            padding: 3px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .image-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .image-title a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .image-title a:hover {
+            color: #ddd;
+        }
+        
+        /* Live Badge */
+        .live-badge {
+            background-color: var(--cnn-red);
+            color: white;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        /* Story Blocks */
+        .story-block {
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .story-block:last-child {
+            border-bottom: none;
+        }
+        
+        .story-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        .story-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .story-title a {
+            color: var(--cnn-dark);
+            text-decoration: none;
+        }
+        
+        .story-title a:hover {
+            color: var(--cnn-red);
+        }
+        
+        .story-excerpt {
+            color: var(--cnn-gray);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .story-meta {
+            color: #999;
+            font-size: 0.85rem;
+        }
+        
+        /* Region Cards */
+        .region-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            margin: 50px 0;
+            border-radius: 10px;
+        }
+        
+        .region-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .region-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cnn-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .region-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--cnn-red);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .region-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .region-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .region-card-content {
+            padding: 20px;
+        }
+        
+        .region-name {
+            color: var(--cnn-red);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .region-story {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .region-story:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        /* Featured Stories */
+        .featured-story {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .featured-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--cnn-dark);
+        }
+        
+
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .image-grid-img {
+                height: 200px;
+            }
+            
+            .featured-story {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+    </header>
+    
+
+    
+    <!-- Breaking News Ticker -->
+    <div class="breaking-ticker">
+        <div class="container">
+            <div class="ticker-content">
+                <span class="breaking-label">BREAKING</span>
+                <span>Justice Department has subpoenaed at least 5 officials in Minnesota as tensions flare over immigration enforcement surge • Trump administration asks judge to reject Minnesota's bid to stop immigration crackdown • 1,500 soldiers on standby for possible Minnesota deployment, source says</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="live-badge">
+                        <div class="live-dot"></div>
+                        LIVE UPDATES
+                    </div>
+                    <div class="hero-tag">IMMIGRATION CRACKDOWN</div>
+                    <h1 class="hero-title">Minnesota in Crisis as Immigration Tensions Escalate</h1>
+                    <p class="hero-subtitle">The Justice Department has subpoenaed at least five officials in Minnesota as tensions continue to flare over the ongoing immigration enforcement surge across the state. Governor mobilizes National Guard.</p>
+                    <a href="#" class="btn btn-lg btn-danger">Follow Live Updates</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Top Stories Grid -->
+        <div class="row">
+            <div class="col-12">
+                <h2 class="region-title mb-4">Top Stories</h2>
+            </div>
+            
+            <!-- Large Story -->
+            <div class="col-12 col-lg-8 mb-4">
+                <div class="image-grid-item">
+                    <img src="https://images.unsplash.com/photo-1546422904-90eab23fb7ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Church protest" class="image-grid-img">
+                    <div class="image-overlay">
+                        <span class="image-tag">PROTESTS</span>
+                        <h3 class="image-title">
+                            <a href="#">Anti-ICE Protest Disrupts Church Service in Minnesota</a>
+                        </h3>
+                        <div class="story-meta">Updated 1 hour ago</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Side Stories -->
+            <div class="col-12 col-lg-4">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <div class="image-grid-item">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Trump speaking" class="image-grid-img">
+                            <div class="image-overlay">
+                                <span class="image-tag">POLITICS</span>
+                                <h4 class="image-title">
+                                    <a href="#">Trump Kicks Off Press Briefing With Mugshots and Complaints</a>
+                                </h4>
+                                <div class="story-meta">45 minutes ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="image-grid-item">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Courtroom" class="image-grid-img">
+                            <div class="image-overlay">
+                                <span class="image-tag">TRIAL</span>
+                                <h4 class="image-title">
+                                    <a href="#">Prosecution Rests in Trial of Former Uvalde School Cop</a>
+                                </h4>
+                                <div class="story-meta">5 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Featured Stories -->
+        <div class="featured-story">
+            <h3 class="featured-title">5 Things to Know for Jan. 20</h3>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Davos conference" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                    <h5>Davos 2026 Kicks Off</h5>
+                    <p>World leaders gather for the annual economic forum amidst global tensions.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Solar storm" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                    <h5>Solar Radiation Storm</h5>
+                    <p>Strongest solar storm in years could disrupt communications and power grids.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Basketball" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                    <h5>Indiana Hoosiers Championship</h5>
+                    <p>Fans celebrate historic NCAA basketball championship win.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Latest Updates -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="region-title mb-4">Latest Updates</h2>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="story-block">
+                    <div class="row">
+                        <div class="col-5">
+                            <img src="https://images.unsplash.com/photo-1599302592151-7b6c0c240b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="National Guard" class="story-img">
+                        </div>
+                        <div class="col-7">
+                            <h4 class="story-title">
+                                <a href="#">1,500 Soldiers on Standby for Possible Minnesota Deployment</a>
+                            </h4>
+                            <p class="story-excerpt">As state mobilizes National Guard, federal troops could be deployed to handle ongoing protests.</p>
+                            <div class="story-meta">3 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-block">
+                    <div class="row">
+                        <div class="col-5">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Trump speaking" class="story-img">
+                        </div>
+                        <div class="col-7">
+                            <h4 class="story-title">
+                                <a href="#">President Trump: 'I Don't Care About the Nobel Prize'</a>
+                            </h4>
+                            <p class="story-excerpt">President dismisses speculation about peace prize during tense press briefing.</p>
+                            <div class="story-meta">2 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="story-block">
+                    <div class="row">
+                        <div class="col-5">
+                            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Business graph" class="story-img">
+                        </div>
+                        <div class="col-7">
+                            <h4 class="story-title">
+                                <a href="#">Netflix Revises Offer for Warner Bros. Discovery in All-Cash Deal</a>
+                            </h4>
+                            <p class="story-excerpt">Streaming giant makes aggressive move in media consolidation race.</p>
+                            <div class="story-meta">4 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-block">
+                    <div class="row">
+                        <div class="col-5">
+                            <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                                 alt="Supreme Court" class="story-img">
+                        </div>
+                        <div class="col-7">
+                            <h4 class="story-title">
+                                <a href="#">Supreme Court Doubts Constitutionality of Hawaii's Gun Ban</a>
+                            </h4>
+                            <p class="story-excerpt">Justices question state's 'default' ban on guns on private property open to public.</p>
+                            <div class="story-meta">6 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Around the Nation -->
+        <section class="region-section">
+            <div class="container">
+                <div class="region-header">
+                    <h2 class="region-title">Around the Nation</h2>
+                </div>
+                
+                <div class="row">
+                    <!-- East Region -->
+                    <div class="col-md-4">
+                        <div class="region-card">
+                            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="East Coast" class="region-card-img">
+                            <div class="region-card-content">
+                                <div class="region-name">EAST</div>
+                                <div class="region-story">
+                                    <strong>Father-daughter duo</strong> set aside Canes-Hoosiers rivalry to join fight against cancer
+                                </div>
+                                <div class="region-story">
+                                    <strong>WXIA:</strong> Staff saves bodies from funeral home fire
+                                </div>
+                                <div class="region-story">
+                                    <strong>WAPT:</strong> Youngest Freedom Rider given formal apology
+                                </div>
+                                <div class="region-story">
+                                    <strong>WDKB:</strong> Bojangles makes big return to NYC
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Central Region -->
+                    <div class="col-md-4">
+                        <div class="region-card">
+                            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Midwest" class="region-card-img">
+                            <div class="region-card-content">
+                                <div class="region-name">CENTRAL</div>
+                                <div class="region-story">
+                                    <strong>Iowa 3-year-old</strong> becomes youngest musician to play at Grand Ole Opry
+                                </div>
+                                <div class="region-story">
+                                    <strong>KTIV:</strong> ISU student turns dance into community impact
+                                </div>
+                                <div class="region-story">
+                                    <strong>WRTV:</strong> IU fans savor historic championship moment
+                                </div>
+                                <div class="region-story">
+                                    <strong>KMBF:</strong> Kansas coach sidelined after hospital treatment
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- West Region -->
+                    <div class="col-md-4">
+                        <div class="region-card">
+                            <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="West Coast" class="region-card-img">
+                            <div class="region-card-content">
+                                <div class="region-name">WEST</div>
+                                <div class="region-story">
+                                    <strong>8-year-old Arizona girl</strong> breaks powerlifting records
+                                </div>
+                                <div class="region-story">
+                                    <strong>KCRA:</strong> Stargazers gather for glimpse of Northern Lights
+                                </div>
+                                <div class="region-story">
+                                    <strong>KSTU:</strong> Organizations help pets after owners deported
+                                </div>
+                                <div class="region-story">
+                                    <strong>KITV:</strong> Hawaii faces critical doctor shortage
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- More US News -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="region-title mb-4">More US News</h2>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Bishop" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                <h5>Bishop's Warning Goes Viral Amid ICE Clashes</h5>
+                <p class="story-meta">1 hour ago</p>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1582550945154-66c8cba4c8b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Synagogue" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                <h5>Items Damaged in Alleged Arson at Mississippi Synagogue</h5>
+                <p class="story-meta">3 hours ago</p>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Working parents" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                <h5>New Solution for Working Parents Combines Childcare, Fitness, Workspace</h5>
+                <p class="story-meta">6 hours ago</p>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Trans athlete" class="img-fluid rounded mb-3" style="height: 180px; width: 100%; object-fit: cover;">
+                <h5>Amid Culture War Over Trans Athletes, Team USA's Chris Mosier Stays Course</h5>
+                <p class="story-meta">7 hours ago</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer"></div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Fetch header
+        fetch("../components/header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                initHeader(); // 🔥 Initialize the header after it's in the DOM
+            });
+
+        // Fetch footer
+        fetch("../components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to news items
+            const newsLinks = document.querySelectorAll('.image-title a, .story-title a, h5 a');
+            newsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const title = this.textContent;
+                    alert(`Loading article: "${title}"\n\nThis is a demonstration. In a real application, this would navigate to the full article.`);
+                });
+            });
+            
+            // Animate live badge dot
+            const liveDot = document.querySelector('.live-dot');
+            if (liveDot) {
+                setInterval(() => {
+                    liveDot.style.animation = 'none';
+                    setTimeout(() => {
+                        liveDot.style.animation = 'pulse 1.5s infinite';
+                    }, 10);
+                }, 4500);
+            }
+            
+            // Update date in header
+            const updateDate = () => {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric'
+                };
+                const dateString = now.toLocaleDateString('en-US', options);
+                
+                const dateElement = document.querySelector('.cnn-white.me-4');
+                if (dateElement && !dateElement.textContent.includes('2026')) {
+                    dateElement.textContent = dateString;
+                }
+            };
+            
+            updateDate();
+        });
+    </script>
+</body>
+</html>

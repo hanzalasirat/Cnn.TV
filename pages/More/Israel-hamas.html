@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global News Network - Israel-Hamas War</title>
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Custom Styles */
+    :root {
+        --primary-red: #cc0000;
+        --dark-red: #990000;
+        --light-red: #ffebee;
+        --dark-gray: #222222;
+        --medium-gray: #666666;
+        --light-gray: #f5f5f5;
+        --border-color: #e0e0e0;
+    }
+    
+    body {
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--dark-gray);
+        line-height: 1.6;
+        background-color: #ffffff;
+    }
+    
+    /* Typography */
+    .main-headline {
+        font-family: 'Playfair Display', serif;
+        font-weight: 800;
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        color: #000000;
+    }
+    
+    .headline-subtitle {
+        font-size: 1.25rem;
+        color: var(--medium-gray);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--primary-red);
+        padding-bottom: 1rem;
+    }
+    
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-gray);
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--border-color);
+    }
+    
+    .article-title {
+        font-weight: 700;
+        font-size: 1.3rem;
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
+        transition: color 0.2s ease;
+    }
+    
+    .article-title a {
+        text-decoration: none;
+        color: var(--dark-gray);
+    }
+    
+    .article-title a:hover {
+        color: var(--primary-red);
+    }
+    
+    .article-excerpt {
+        color: var(--medium-gray);
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    /* Layout Components */
+    .latest-news-label {
+        background: var(--primary-red);
+        color: #ffffff;
+        padding: 10px 24px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        border-radius: 4px 4px 0 0;
+    }
+    
+    .breaking-news-banner {
+        background-color: var(--light-red);
+        border-left: 5px solid var(--primary-red);
+        padding: 15px 20px;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+    
+    .breaking-news-label {
+        background: var(--primary-red);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+    
+    /* Image Styles */
+    .featured-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .featured-image:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-thumbnail {
+        width: 150px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 4px;
+        flex-shrink: 0;
+    }
+    
+    .card-image {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px 6px 0 0;
+    }
+    
+    .large-featured-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Video Section */
+    .video-section {
+        background-color: var(--light-gray);
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 2.5rem;
+    }
+    
+    .video-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .video-item:last-child {
+        border-bottom: none;
+    }
+    
+    .video-info {
+        margin-left: 15px;
+    }
+    
+    .video-title {
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 5px;
+        line-height: 1.4;
+    }
+    
+    .video-meta {
+        color: var(--medium-gray);
+        font-size: 0.85rem;
+    }
+    
+    .video-play-icon {
+        color: var(--primary-red);
+        font-size: 1.5rem;
+        margin-right: 5px;
+    }
+    
+    .exclusive-badge {
+        background-color: var(--primary-red);
+        color: white;
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+    
+    /* Weather Widget */
+    .weather-widget {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+    
+    .weather-location {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .weather-temp {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+    
+    .weather-condition {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .weather-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+    }
+    
+    .weather-detail {
+        text-align: center;
+    }
+    
+    .weather-detail-value {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    .weather-detail-label {
+        font-size: 0.85rem;
+        opacity: 0.9;
+    }
+    
+    /* Article Cards */
+    .article-card {
+        background: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 1.5rem;
+        height: 100%;
+    }
+    
+    .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    
+    .article-card-content {
+        padding: 1.25rem;
+    }
+    
+    .article-card-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 0.75rem;
+    }
+    
+    .article-card-title a {
+        color: var(--dark-gray);
+        text-decoration: none;
+    }
+    
+    .article-card-title a:hover {
+        color: var(--primary-red);
+    }
+    
+    .article-card-meta {
+        color: var(--medium-gray);
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Timeline Section */
+    .timeline-section {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .timeline-item:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        background-color: var(--primary-red);
+        border-radius: 50%;
+    }
+    
+    .timeline-item:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 17px;
+        width: 2px;
+        height: calc(100% + 1rem);
+        background-color: var(--border-color);
+    }
+    
+    .timeline-item:last-child:after {
+        display: none;
+    }
+    
+    .timeline-date {
+        font-weight: 700;
+        color: var(--primary-red);
+        margin-bottom: 0.25rem;
+    }
+    
+    .timeline-content {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .timeline-details {
+        color: var(--medium-gray);
+        font-size: 0.95rem;
+    }
+    
+    /* Author Section */
+    .author-section {
+        background-color: var(--light-gray);
+        border-radius: 8px;
+        padding: 25px;
+        margin-top: 2rem;
+    }
+    
+    .author-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+        border: 3px solid white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .author-name {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .author-title {
+        color: var(--medium-gray);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .author-bio {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Live Updates */
+    .live-updates-section {
+        border: 2px solid var(--primary-red);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 2.5rem;
+    }
+    
+    .live-updates-header {
+        background-color: var(--primary-red);
+        color: white;
+        padding: 15px 20px;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+    
+    .live-updates-content {
+        padding: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .live-update-item {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .live-update-item:last-child {
+        border-bottom: none;
+    }
+    
+    .live-update-time {
+        color: var(--primary-red);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    
+    .live-update-text {
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    
+    /* Statistics Section */
+    .stats-section {
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        color: white;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 2.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .main-headline {
+            font-size: 2.2rem;
+        }
+        
+        .headline-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .featured-image {
+            height: 180px;
+        }
+        
+        .large-featured-image {
+            height: 250px;
+        }
+        
+        .weather-temp {
+            font-size: 2.8rem;
+        }
+        
+        .video-thumbnail {
+            width: 120px;
+            height: 70px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .main-headline {
+            font-size: 1.8rem;
+        }
+        
+        .weather-details {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        
+        .weather-detail {
+            width: 50%;
+            margin-bottom: 15px;
+        }
+        
+        .video-item {
+            flex-direction: column;
+        }
+        
+        .video-thumbnail {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        
+        .video-info {
+            margin-left: 0;
+        }
+    }
+    
+    /* Utility Classes */
+    .text-red {
+        color: var(--primary-red);
+    }
+    
+    .bg-light-red {
+        background-color: var(--light-red);
+    }
+    
+    .border-red {
+        border-color: var(--primary-red);
+    }
+    
+    .fw-medium {
+        font-weight: 500;
+    }
+</style>
+</head>
+
+<body>
+<!-- header -->
+ <div id="header"></div>
+<!-- Main Container -->
+<div class="container py-4">
+    
+    <!-- Breaking News Banner -->
+    <div class="breaking-news-banner">
+        <span class="breaking-news-label">BREAKING</span>
+        Israel expands ground operations in Gaza as airstrikes intensify across the enclave. Live updates continue.
+    </div>
+    
+    <!-- Main Headline -->
+    <h1 class="main-headline">Israel–Hamas War</h1>
+    <p class="headline-subtitle">Live updates and in-depth coverage from Israel and Gaza</p>
+    
+    <!-- Main Content Row -->
+    <div class="row">
+        
+        <!-- Left Column - Main Content (8 columns) -->
+        <div class="col-lg-8">
+            
+            <!-- Latest News Label -->
+            <div class="latest-news-label">LATEST NEWS</div>
+            
+            <!-- Featured Article with Large Image -->
+            <div class="mb-5">
+                <img src="https://images.unsplash.com/photo-1697040806027-1b13c1f5f3c4" alt="Israeli troops in Gaza" class="large-featured-image">
+                <h2 class="article-title">
+                    <a href="#">Israel expands ground operations in Gaza as airstrikes intensify</a>
+                </h2>
+                <p class="article-excerpt">
+                    Israeli forces push deeper into Gaza while humanitarian agencies warn of worsening conditions for civilians trapped in the conflict zone. The Israeli military says it has targeted Hamas command centers and tunnel networks.
+                </p>
+                <div class="d-flex align-items-center">
+                    <span class="text-red fw-bold me-3">2 hours ago</span>
+                    <span class="badge bg-secondary me-2">Military</span>
+                    <span class="badge bg-secondary">Conflict</span>
+                </div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="row mb-5 border-bottom pb-5">
+                <div class="col-md-5">
+                    <img class="featured-image" src="https://images.unsplash.com/photo-1697040784193-bffcb8d4e3a3" alt="Gaza hospital">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="article-title">
+                        <a href="#">Hospitals overwhelmed in Gaza amid fuel shortages and mass casualties</a>
+                    </h2>
+                    <p class="article-excerpt">
+                        Doctors say hospitals are operating beyond capacity as fighting continues across the enclave. Medical supplies are running critically low, and power outages threaten life-saving equipment.
+                    </p>
+                    <div class="d-flex align-items-center">
+                        <span class="text-red fw-bold me-3">4 hours ago</span>
+                        <span class="badge bg-secondary me-2">Health</span>
+                        <span class="badge bg-secondary">Humanitarian</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="mb-5 border-bottom pb-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="featured-image" src="https://images.unsplash.com/photo-1695637791825-dc5c6c4d2f9d" alt="Hamas video release">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="article-title">
+                            <a href="#">Hamas releases video claiming Israeli losses in southern Gaza</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            The Israeli military says it is reviewing the footage and disputes several claims made by Hamas. The video shows what appears to be destroyed Israeli military vehicles.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <span class="text-red fw-bold me-3">6 hours ago</span>
+                            <span class="badge bg-secondary me-2">Propaganda</span>
+                            <span class="badge bg-secondary">Military</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 4 -->
+            <div class="mb-5 border-bottom pb-5">
+                <h2 class="article-title">
+                    <a href="#">US urges restraint as civilian death toll rises in Gaza</a>
+                </h2>
+                <p class="article-excerpt">
+                    Washington calls for humanitarian pauses while reaffirming Israel's right to self-defense. Secretary of State Antony Blinken is expected to visit the region next week for talks with Israeli and Arab leaders.
+                </p>
+                <div class="d-flex align-items-center">
+                    <span class="text-red fw-bold me-3">8 hours ago</span>
+                    <span class="badge bg-secondary me-2">Diplomacy</span>
+                    <span class="badge bg-secondary">United States</span>
+                </div>
+            </div>
+            
+            <!-- Article 5 -->
+            <div class="mb-5 border-bottom pb-5">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="featured-image" src="https://images.unsplash.com/photo-1695637791825-dc5c6c4d2f9d" alt="UN meeting">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="article-title">
+                            <a href="#">UN Security Council fails to pass ceasefire resolution</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            Russia and China veto US-backed resolution calling for humanitarian pauses. The divided Security Council reflects global divisions over the conflict.
+                        </p>
+                        <div class="d-flex align-items-center">
+                            <span class="text-red fw-bold me-3">10 hours ago</span>
+                            <span class="badge bg-secondary me-2">United Nations</span>
+                            <span class="badge bg-secondary">Diplomacy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article 6 -->
+            <div class="mb-5">
+                <h2 class="article-title">
+                    <a href="#">Egypt opens Rafah crossing for limited evacuations</a>
+                </h2>
+                <p class="article-excerpt">
+                    Dozens of wounded Palestinians and foreign nationals have been allowed to leave Gaza through the Rafah crossing into Egypt. Egyptian authorities say the crossing will remain open for humanitarian cases.
+                </p>
+                <div class="d-flex align-items-center">
+                    <span class="text-red fw-bold me-3">12 hours ago</span>
+                    <span class="badge bg-secondary me-2">Humanitarian</span>
+                    <span class="badge bg-secondary">Egypt</span>
+                </div>
+            </div>
+            
+            <!-- Article Cards Grid -->
+            <div class="mt-5">
+                <h3 class="section-title">More Coverage</h3>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="article-card">
+                            <img src="https://images.unsplash.com/photo-1697040806027-1b13c1f5f3c4" alt="Protest in London" class="card-image">
+                            <div class="article-card-content">
+                                <h4 class="article-card-title">
+                                    <a href="#">Global protests call for ceasefire as tensions rise</a>
+                                </h4>
+                                <p class="article-excerpt">Mass demonstrations in cities worldwide demand an end to hostilities in Gaza.</p>
+                                <div class="article-card-meta">
+                                    <span class="text-red fw-bold">14 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="article-card">
+                            <img src="https://images.unsplash.com/photo-1697040806027-1b13c1f5f3c4" alt="Economic impact" class="card-image">
+                            <div class="article-card-content">
+                                <h4 class="article-card-title">
+                                    <a href="#">Oil prices surge amid Middle East tensions</a>
+                                </h4>
+                                <p class="article-excerpt">Global markets react to the escalating conflict with rising energy prices.</p>
+                                <div class="article-card-meta">
+                                    <span class="text-red fw-bold">16 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Section -->
+            <div class="timeline-section">
+                <h3 class="section-title">Conflict Timeline</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 7, 2023</div>
+                    <div class="timeline-content">Hamas launches surprise attack on Israel</div>
+                    <div class="timeline-details">Over 1,000 Israelis killed in coordinated attacks</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 8, 2023</div>
+                    <div class="timeline-content">Israel declares war on Hamas</div>
+                    <div class="timeline-details">Massive airstrikes begin on Gaza targets</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">October 27, 2023</div>
+                    <div class="timeline-content">Israel expands ground operations</div>
+                    <div class="timeline-details">Troops enter northern Gaza in large numbers</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">November 5, 2023</div>
+                    <div class="timeline-content">Humanitarian pauses announced</div>
+                    <div class="timeline-details">Four-hour daily pauses for aid delivery</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Present</div>
+                    <div class="timeline-content">Continued fighting in Gaza City</div>
+                    <div class="timeline-details">Heavy urban combat reported in northern Gaza</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Right Column - Sidebar (4 columns) -->
+        <div class="col-lg-4">
+            
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="fw-bold mb-0">Videos</h4>
+                    <a href="#" class="text-decoration-none text-red fw-bold">View All <i class="bi bi-arrow-right"></i></a>
+                </div>
+                
+                <div class="video-item">
+                    <img class="video-thumbnail" src="https://images.unsplash.com/photo-1697040756835-09a7cb1e95a1" alt="Gaza City">
+                    <div class="video-info">
+                        <div class="video-title">
+                            <i class="bi bi-play-circle-fill video-play-icon"></i>
+                            Inside Gaza City after overnight strikes
+                        </div>
+                        <div class="video-meta">Video 1056 • 4:20</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <img class="video-thumbnail" src="https://images.unsplash.com/photo-1697040740832-76c58a2e2b13" alt="Iron Dome">
+                    <div class="video-info">
+                        <div class="video-title">
+                            <i class="bi bi-play-circle-fill video-play-icon"></i>
+                            Israeli Iron Dome intercepts rockets
+                        </div>
+                        <div class="video-meta">Video 321 • 2:10</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <img class="video-thumbnail" src="https://images.unsplash.com/photo-1697040784193-bffcb8d4e3a3" alt="Hospital conditions">
+                    <div class="video-info">
+                        <div class="video-title">
+                            <i class="bi bi-play-circle-fill video-play-icon"></i>
+                            Gaza hospital conditions deteriorate
+                        </div>
+                        <div class="video-meta">Video 1116 • 5:45</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <img class="video-thumbnail" src="https://images.unsplash.com/photo-1695637791825-dc5c6c4d2f9d" alt="Weapons analysis">
+                    <div class="video-info">
+                        <div class="video-title">
+                            <i class="bi bi-play-circle-fill video-play-icon"></i>
+                            <span class="exclusive-badge">EXCLUSIVE</span>
+                            Analysis: Weapons used in the conflict
+                        </div>
+                        <div class="video-meta">Video 207 • 8:30</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <img class="video-thumbnail" src="https://images.unsplash.com/photo-1697040806027-1b13c1f5f3c4" alt="Protests worldwide">
+                    <div class="video-info">
+                        <div class="video-title">
+                            <i class="bi bi-play-circle-fill video-play-icon"></i>
+                            Global protests call for ceasefire
+                        </div>
+                        <div class="video-meta">Video 643 • 6:15</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <div class="weather-location">Tel Aviv, Israel</div>
+                <div class="weather-temp">27°</div>
+                <div class="weather-condition">Clear skies • Feels like 29°</div>
+                <div class="weather-details">
+                    <div class="weather-detail">
+                        <div class="weather-detail-value">58%</div>
+                        <div class="weather-detail-label">Humidity</div>
+                    </div>
+                    <div class="weather-detail">
+                        <div class="weather-detail-value">11 km/h</div>
+                        <div class="weather-detail-label">Wind</div>
+                    </div>
+                    <div class="weather-detail">
+                        <div class="weather-detail-value">25°</div>
+                        <div class="weather-detail-label">Low</div>
+                    </div>
+                    <div class="weather-detail">
+                        <div class="weather-detail-value">29°</div>
+                        <div class="weather-detail-label">High</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Live Updates -->
+            <div class="live-updates-section">
+                <div class="live-updates-header">
+                    <i class="bi bi-broadcast me-2"></i> LIVE UPDATES
+                </div>
+                <div class="live-updates-content">
+                    <div class="live-update-item">
+                        <div class="live-update-time">14:32</div>
+                        <div class="live-update-text">Israeli military reports hitting 150 Hamas targets in past 24 hours</div>
+                    </div>
+                    <div class="live-update-item">
+                        <div class="live-update-time">14:15</div>
+                        <div class="live-update-text">UN reports over 1.5 million people displaced in Gaza</div>
+                    </div>
+                    <div class="live-update-item">
+                        <div class="live-update-time">13:48</div>
+                        <div class="live-update-text">Qatar mediating talks for hostage release, according to sources</div>
+                    </div>
+                    <div class="live-update-item">
+                        <div class="live-update-time">13:25</div>
+                        <div class="live-update-text">Rocket sirens sound in southern Israeli communities</div>
+                    </div>
+                    <div class="live-update-item">
+                        <div class="live-update-time">12:59</div>
+                        <div class="live-update-text">US aircraft carrier arrives in Eastern Mediterranean</div>
+                    </div>
+                    <div class="live-update-item">
+                        <div class="live-update-time">12:40</div>
+                        <div class="live-update-text">Egypt to host regional summit on Gaza crisis next week</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div class="stats-section">
+                <h5 class="fw-bold mb-4">Conflict Statistics</h5>
+                <div class="row">
+                    <div class="col-6 mb-4">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Reported Fatalities</div>
+                    </div>
+                    <div class="col-6 mb-4">
+                        <div class="stat-number">1.5M+</div>
+                        <div class="stat-label">Displaced People</div>
+                    </div>
+                    <div class="col-6 mb-4">
+                        <div class="stat-number">240+</div>
+                        <div class="stat-label">Hostages Taken</div>
+                    </div>
+                    <div class="col-6 mb-4">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Days of Conflict</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Author Section -->
+            <div class="author-section">
+                <div class="d-flex align-items-start mb-3">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Journalist" class="author-avatar">
+                    <div>
+                        <div class="author-name">David Cohen</div>
+                        <div class="author-title">Middle East Correspondent</div>
+                    </div>
+                </div>
+                <p class="author-bio">
+                    Reporting from the region for over 15 years. Previously covered conflicts in Syria, Iraq, and Yemen. Currently based in Jerusalem.
+                </p>
+            </div>
+            
+            <!-- Related Coverage -->
+            <div class="mt-4">
+                <h5 class="fw-bold mb-3">Related Coverage</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3">
+                        <div class="fw-bold">The History of Israel-Palestine Conflict</div>
+                        <small class="text-muted">Background explainer</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3">
+                        <div class="fw-bold">Hamas: Origins and Objectives</div>
+                        <small class="text-muted">Who's who guide</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3">
+                        <div class="fw-bold">International Law and the Conflict</div>
+                        <small class="text-muted">Legal analysis</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3">
+                        <div class="fw-bold">The Role of Regional Powers</div>
+                        <small class="text-muted">Iran, Qatar, Egypt</small>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="mt-5 pt-4 border-top">
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="fw-bold">Global News Network</h5>
+                <p class="text-muted">Comprehensive coverage of global events with accuracy and integrity.</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="text-muted">&copy; 2023 Global News Network. All rights reserved.</p>
+                <div>
+                    <a href="#" class="text-decoration-none text-muted me-3">Contact</a>
+                    <a href="#" class="text-decoration-none text-muted me-3">About</a>
+                    <a href="#" class="text-decoration-none text-muted">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</div>
+<!-- footer -->
+<div id="footer"></div>
+    <script>
+        // Fetch header
+        fetch("../../components/header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                initHeader(); // 🔥 Initialize the header after it's in the DOM
+            });
+
+        // Fetch footer
+        fetch("../../components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

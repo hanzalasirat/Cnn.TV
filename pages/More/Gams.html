@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN Games & Puzzles - Test Your Knowledge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #0c0c0c;
+            color: white;
+            padding: 15px 0;
+            border-bottom: 5px solid #cc0000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: #cc0000;
+            font-size: 2.2rem;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        
+        .cnn-logo {
+            color: #cc0000;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .user-actions a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .user-actions a:hover {
+            color: #cc0000;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #cc0000;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #a30000;
+        }
+        
+        /* Games Grid */
+        .games-section {
+            padding: 40px 0 80px;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #0c0c0c;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: #cc0000;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .game-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .game-icon {
+            background-color: #0c0c0c;
+            color: white;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        
+        .game-content {
+            padding: 25px;
+        }
+        
+        .game-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #0c0c0c;
+        }
+        
+        .game-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .play-button {
+            display: inline-block;
+            background-color: #0c0c0c;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .play-button:hover {
+            background-color: #cc0000;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: #0c0c0c;
+            color: white;
+            padding: 40px 0;
+            margin: 60px 0;
+        }
+        
+        .stats-content {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #cc0000;
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0c0c0c;
+            color: #aaa;
+            padding: 40px 0 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #cc0000;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-gamepad"></i>
+                    <h1><span class="cnn-logo">CNN</span> GAMES</h1>
+                </div>
+                <div class="user-actions">
+                    <a href="#"><i class="fas fa-user"></i> Sign In</a>
+                    <a href="#"><i class="fas fa-trophy"></i> Leaderboards</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Test Your Knowledge With Our Games & Puzzles</h2>
+            <p>Challenge your brain with our free collection of daily games, crosswords, and puzzles. No pencil or eraser required—play right here on CNN!</p>
+            <a href="#games" class="cta-button">Start Playing Now</a>
+        </div>
+    </section>
+    
+    <!-- Games Section -->
+    <section class="games-section" id="games">
+        <div class="container">
+            <h2 class="section-title">Our Games Collection</h2>
+            <div class="games-grid">
+                
+                <!-- Daily Crossword -->
+                <div class="game-card">
+                    <div class="game-icon" style="background-color: #1a5fb4;">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Daily Crossword</h3>
+                        <p class="game-description">Check your news know-how with our daily crossword. No pencil or eraser required—solve it online anytime!</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Jumble Crossword -->
+                <div class="game-card">
+                    <div class="game-icon" style="background-color: #c64600;">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Jumble Crossword</h3>
+                        <p class="game-description">A classic, scrambled word game. Jumble delivers daily brain-teasing enjoyment that will challenge your vocabulary.</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Photo Shuffle -->
+                <div class="game-card">
+                    <div class="game-icon" style="background-color: #26a269;">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Photo Shuffle</h3>
+                        <p class="game-description">Ready to put the pieces back together? Take our jigsaw challenge with stunning photos from around the world.</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Sudoblock -->
+                <div class="game-card">
+                    <div class="game-icon" style="background-color: #613583;">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Sudoblock</h3>
+                        <p class="game-description">Sudoku meets Blocks in this addictive tile-matching puzzle. A fresh take on two classic puzzle types.</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Sudoku -->
+                <div class="game-card">
+                    <div class="game-icon" style="background-color: #e5a50a;">
+                        <i class="fas fa-square-root-alt"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">Sudoku</h3>
+                        <p class="game-description">A cross-number crossword that will challenge your brain and your patience. Multiple difficulty levels available.</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- 5 Things Quiz -->
+                <div class="game-card">
+                    <div class="game-icon" style="background-color: #c01c28;">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">5 Things Quiz</h3>
+                        <p class="game-description">What do you remember from the week that was? Test your knowledge of recent news events with this weekly quiz.</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-content">
+                <div class="stat-item">
+                    <div class="stat-number">4M+</div>
+                    <div class="stat-text">Daily Players</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-text">Games & Puzzles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Free to Play</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CNN Games</h3>
+                    <p>Test your knowledge with our free collection of games and puzzles—right here on CNN.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">All Games</a></li>
+                        <li><a href="#">Daily Crossword</a></li>
+                        <li><a href="#">Sudoku</a></li>
+                        <li><a href="#">Weekly Quiz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CNN. All Rights Reserved. CNN Games is part of Warner Bros. Discovery.</p>
+            </div>
+        </div>
+    </footer>
+        <script>
+        // Fetch header
+        fetch("../../components/header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                initHeader(); // 🔥 Initialize the header after it's in the DOM
+            });
+
+        // Fetch footer
+        fetch("../../components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+    <script>
+        // Simple interaction for game cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const playButtons = document.querySelectorAll('.play-button');
+            
+            playButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const gameTitle = this.parentElement.querySelector('.game-title').textContent;
+                    alert(`Starting "${gameTitle}"... Enjoy your game!`);
+                });
+            });
+            
+            // Stats counter animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+                }, 20);
+            });
+        });
+    </script>
+</body>
+</html>

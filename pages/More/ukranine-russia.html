@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global News Network</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #cc0000;
+            --dark-red: #990000;
+            --light-red: #ffebee;
+            --dark-gray: #2e2e2e;
+            --medium-gray: #666;
+            --light-gray: #f5f5f5;
+            --border-gray: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .layout__wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .layout__main {
+            padding-top: 30px;
+        }
+        
+        .main-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .sub-headline {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        .latest-news-label {
+            background-color: var(--primary-red);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+        }
+        
+        .news-article {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        
+        .news-article:last-child {
+            border-bottom: none;
+        }
+        
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .article-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .article-title a:hover {
+            color: var(--primary-red);
+        }
+        
+        .article-excerpt {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+        
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+        }
+        
+        .article-meta .timestamp {
+            color: var(--primary-red);
+            font-weight: 600;
+        }
+        
+        .article-meta .category {
+            background-color: var(--light-gray);
+            padding: 3px 10px;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .video-section {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 6px;
+            margin-top: 40px;
+        }
+        
+        .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .video-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        
+        .video-item:last-child {
+            border-bottom: none;
+        }
+        
+        .video-thumbnail {
+            width: 160px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .video-info {
+            flex: 1;
+        }
+        
+        .video-item-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+        
+        .video-duration {
+            color: var(--medium-gray);
+            font-size: 0.85rem;
+        }
+        
+        .play-button {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+            margin-right: 5px;
+        }
+        
+        .exclusive-badge {
+            background-color: var(--primary-red);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        
+        .business-section, .politics-section {
+            padding: 30px 0;
+        }
+        
+        .section-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border-gray);
+        }
+        
+        .author-card {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .author-title {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        .breaking-news {
+            background-color: var(--light-red);
+            padding: 15px;
+            border-left: 4px solid var(--primary-red);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .breaking-label {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            margin-right: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .analysis-box {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            border-top: 4px solid var(--primary-red);
+        }
+        
+        .analysis-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .trending-item {
+            padding: 15px;
+            background-color: #fff;
+            border-left: 3px solid var(--primary-red);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .trending-item:hover {
+            background-color: var(--light-gray);
+            transform: translateX(5px);
+        }
+        
+        .trending-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-right: 15px;
+        }
+        
+        .trending-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+        
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .related-links {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 30px;
+        }
+        
+        .related-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .related-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        
+        .related-item:last-child {
+            border-bottom: none;
+        }
+        
+        .container_lead-plus-headlines {
+            margin-bottom: 40px;
+        }
+        
+        .container_lead-plus-headlines__item {
+            margin-bottom: 30px;
+        }
+        
+        .container__headline-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container__item-media {
+            overflow: hidden;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .container__item-media img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .container__item-media img:hover {
+            transform: scale(1.05);
+        }
+        
+        .container_list-headlines-with-images__item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        
+        .container_list-headlines-with-images__item:last-child {
+            border-bottom: none;
+        }
+        
+        .container_vertical-strip {
+            margin-bottom: 40px;
+        }
+        
+        .container_vertical-strip__item {
+            margin-bottom: 25px;
+        }
+        
+        .container_vertical-strip__item-media img {
+            height: 180px;
+        }
+        
+        .container_grid-4 {
+            margin-top: 50px;
+        }
+        
+        .container_grid-4__item {
+            margin-bottom: 30px;
+        }
+        
+        .container_grid-4__item-media img {
+            height: 180px;
+        }
+        
+        .container__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-gray);
+        }
+        
+        .weather-widget {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .weather-widget__location {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .weather-widget__temp {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+        
+        .weather-widget__condition {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .weather-widget__details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .weather-widget__detail {
+            text-align: center;
+        }
+        
+        .weather-widget__detail-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .weather-widget__detail-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .main-headline {
+                font-size: 2rem;
+            }
+            
+            .video-thumbnail {
+                width: 120px;
+                height: 70px;
+            }
+            
+            .container__headline-text {
+                font-size: 1.4rem;
+            }
+            
+            .container__item-media img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+     <div id="header"></div>
+    <!-- Main Content Start -->
+    <div class="layout__wrapper">
+        <section class="layout__main">
+            <!-- Breaking News Banner -->
+            <div class="bg-dark text-white py-2 mb-4">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <span class="live-indicator">
+                            <span class="live-dot"></span>
+                            LIVE
+                        </span>
+                        <span class="ms-3">UK and France agree to send troops to Ukraine in event of peace deal with Russia</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Page Title -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="main-headline">Russian invasion of Ukraine</h1>
+                    <p class="sub-headline">Everything you need to know about Russia's invasion of Ukraine.</p>
+                </div>
+            </div>
+            
+            <!-- Main Content Layout -->
+            <div class="row">
+                <!-- Left Column - Latest News -->
+                <div class="col-lg-8">
+                    <!-- Latest News Section -->
+                    <div class="mb-5">
+                        <div class="latest-news-label">LATEST NEWS</div>
+                        
+                        <!-- Breaking News Alert -->
+                        <div class="breaking-news">
+                            <span class="breaking-label">BREAKING</span>
+                            Russia says any foreign forces in Ukraine would be 'legitimate targets', after UK and France pledge troops
+                        </div>
+                        
+                        <!-- News Articles -->
+                        <div class="news-article">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Davos meeting" class="featured-image">
+                                </div>
+                                <div class="col-md-8">
+                                    <h2 class="article-title">
+                                        <a href="#">European leaders criticize Trump's foreign policies as Greenland tensions loom over Davos</a>
+                                    </h2>
+                                    <p class="article-excerpt">
+                                        World leaders gather at the annual Davos forum amid growing tensions over Trump's approach to international alliances and the ongoing Greenland dispute.
+                                    </p>
+                                    <div class="article-meta">
+                                        <span class="timestamp">2 hours ago</span>
+                                        <span class="category">World Politics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="https://images.unsplash.com/photo-1674574124649-778f9afc0e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Ukrainians staying warm" class="featured-image">
+                                </div>
+                                <div class="col-md-8">
+                                    <h2 class="article-title">
+                                        <a href="#">Bonfires, dancing, pets: How Ukrainians are staying warm during the toughest winter in years</a>
+                                    </h2>
+                                    <p class="article-excerpt">
+                                        With energy infrastructure under constant attack, Ukrainians are finding creative ways to survive the harsh winter months.
+                                    </p>
+                                    <div class="article-meta">
+                                        <span class="timestamp">4 hours ago</span>
+                                        <span class="category">Human Interest</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">The dramatic, and unusual, Oval Office moments from the first year of Trump 2.0</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                An inside look at the most memorable moments from Trump's return to the White House, from foreign policy decisions to unexpected meetings.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">5 hours ago</span>
+                                <span class="category">US Politics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Meet the guy tracking illicit oil tankers from his rooftop</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                Using satellite imagery and open-source intelligence, this activist is exposing Russian attempts to circumvent sanctions through illicit oil transfers.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">6 hours ago</span>
+                                <span class="category">Investigative</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Trump's gunboat diplomacy presents peril – and opportunity – for Putin</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                Analysts examine how Trump's unconventional approach to foreign policy is creating both risks and potential advantages for the Russian president.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">8 hours ago</span>
+                                <span class="category">Analysis</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="https://images.unsplash.com/photo-1626203850305-ebf9c0d6c79b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Gas prices" class="featured-image">
+                                </div>
+                                <div class="col-md-8">
+                                    <h2 class="article-title">
+                                        <a href="#">Despite Venezuela, forecasters say 2026 will be the cheapest year for gas since Covid</a>
+                                    </h2>
+                                    <p class="article-excerpt">
+                                        Energy analysts predict global gas prices will reach their lowest point since the pandemic, despite ongoing production issues in Venezuela.
+                                    </p>
+                                    <div class="article-meta">
+                                        <span class="timestamp">10 hours ago</span>
+                                        <span class="category">Energy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Zelensky names spy chief to head presidential administration in big shake-up</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                In a major restructuring of his inner circle, President Zelensky appoints intelligence chief to lead his administration amid ongoing war efforts.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">11 hours ago</span>
+                                <span class="category">Ukraine Politics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">'No reason to stop living': Ukrainians find ways to cope with power cuts as Russia pounds the energy system</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                Despite frequent blackouts and energy shortages, Ukrainians demonstrate resilience by adapting daily life to continue amid the conflict.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">12 hours ago</span>
+                                <span class="category">Lifestyle</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">CIA assesses Ukraine war not targeting a Putin residence in drone attack, contrary to Kremlin claim, sources say</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                US intelligence contradicts Russian claims that Ukraine specifically targeted Putin's personal residence in recent drone attacks.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">13 hours ago</span>
+                                <span class="category">Intelligence</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Russia doubles down on claim of Ukrainian attack</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                The Kremlin intensifies its rhetoric about alleged Ukrainian attacks on Russian territory, despite contradictory evidence from Western intelligence.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">14 hours ago</span>
+                                <span class="category">Conflict</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Section -->
+                    <div class="business-section">
+                        <div class="section-label">Business</div>
+                        
+                        <div class="analysis-box">
+                            <h3 class="analysis-title">Russia's economy is struggling. But that won't bring Putin to the negotiating table for years</h3>
+                            <p class="article-excerpt">
+                                Despite Western sanctions causing significant economic damage, experts believe Russia's leadership is prepared to endure years of hardship rather than negotiate on unfavorable terms.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">3 hours ago</span>
+                                <span class="category">Economic Analysis</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Europe is facing a huge decision on an unprecedented plan to use Russia's frozen assets to help Ukraine</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                European leaders debate the legal and economic implications of seizing frozen Russian assets to fund Ukraine's reconstruction.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">2 hours ago</span>
+                                <span class="category">Finance</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Orbán meets Putin in Moscow to shore up Hungary's energy supplies, making use of Trump exemption</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                The Hungarian prime minister visits Moscow to secure energy deals, taking advantage of exemptions granted during Trump's administration.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">3 hours ago</span>
+                                <span class="category">Energy</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Crushed by punishing US sanctions, Russia's Lukoil accepts offer to sell its international business</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                One of Russia's largest oil companies succumbs to pressure from Western sanctions, agreeing to divest its international operations.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">4 hours ago</span>
+                                <span class="category">Corporate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Videos and Politics -->
+                <div class="col-lg-4">
+                    <!-- Videos Section -->
+                    <div class="video-section">
+                        <div class="video-header">
+                            <h3 class="video-title">Videos</h3>
+                            <a href="#" class="text-decoration-none text-danger fw-bold">View All <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Hospital during blackout" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    Ukrainian surgeon shows how hospital operates during blackout
+                                </h4>
+                                <div class="video-duration">Video 1056 • 15 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1543332143-4e8c27e3256f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Freezing conditions" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    Ukrainians suffer in freezing conditions
+                                </h4>
+                                <div class="video-duration">Video 321 • 8 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1576080230905-284a94d4e9a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Woman working after explosion" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    Woman in Ukraine carries on working after explosion
+                                </h4>
+                                <div class="video-duration">Video 1116 • 12 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1614729930268-d72e45566c4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Missile" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    What is the Oreshnik missile Russia fired into Ukraine?
+                                </h4>
+                                <div class="video-duration">Video 207 • 6 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1612994520789-5bfa2b4a8732?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Missile inside view" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    <span class="exclusive-badge">EXCLUSIVE</span> CNN looks inside an Oreshnik missile
+                                </h4>
+                                <div class="video-duration">Video 204 • 10 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1511225070737-5af5ac9a690d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Former Ambassador" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    Former U.S. Ambassador to Ukraine weighs in the Ukraine-Russia war
+                                </h4>
+                                <div class="video-duration">Video 314 • 22 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Trump speaking" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    Trump says contested allegation that Ukrainian drone targeted a Putin residence is 'not good'
+                                </h4>
+                                <div class="video-duration">Video 643 • 7 min</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item">
+                            <img src="https://images.unsplash.com/photo-1597633425043-0fba372f9e2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Trump Zelensky meeting" class="video-thumbnail">
+                            <div class="video-info">
+                                <h4 class="video-item-title">
+                                    <i class="bi bi-play-circle-fill play-button"></i>
+                                    Trump says he 'made a lot of progress' in meeting with Zelensky
+                                </h4>
+                                <div class="video-duration">Video 623 • 9 min</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Politics Section -->
+                    <div class="politics-section">
+                        <div class="section-label">Politics</div>
+                        
+                        <!-- Author Card -->
+                        <div class="author-card d-flex align-items-center">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" 
+                                 alt="Alexander Nemirovsky" class="author-img">
+                            <div>
+                                <div class="author-name">Alexander Nemirovsky</div>
+                                <div class="author-title">Reuters Correspondent</div>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Trump says contested allegation that Ukrainian drone targeted a Putin residence is 'not good'</a>
+                            </h2>
+                            <div class="article-meta">
+                                <span class="timestamp">2 hours ago</span>
+                                <span class="category">US Politics</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Takeaways from Trump's meeting with Zelensky in Florida</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                Key insights from the high-stakes meeting between the US and Ukrainian leaders.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">3 hours ago</span>
+                                <span class="category">Diplomacy</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Zelensky and Trump to meet in Florida after weeks of intensive peace talks</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                The Ukrainian president travels to Florida for critical discussions on ending the war.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">4 hours ago</span>
+                                <span class="category">Peace Talks</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Analysis: Donald Trump's top 25 lies of 2025</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                Fact-checking the most significant false claims made by the US president during his second year in office.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">5 hours ago</span>
+                                <span class="category">Fact Check</span>
+                            </div>
+                        </div>
+                        
+                        <div class="news-article">
+                            <h2 class="article-title">
+                                <a href="#">Trump says end to Ukraine war closer than ever, but US officials caution security guarantee offers won't last forever</a>
+                            </h2>
+                            <p class="article-excerpt">
+                                While expressing optimism about peace prospects, administration officials warn that current security proposals have expiration dates.
+                            </p>
+                            <div class="article-meta">
+                                <span class="timestamp">6 hours ago</span>
+                                <span class="category">Negotiations</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trending Now Section -->
+                    <div class="mt-5">
+                        <div class="section-label">Trending Now</div>
+                        
+                        <div class="trending-item d-flex align-items-start">
+                            <div class="trending-number">1</div>
+                            <div class="trending-title">UK and France agree to send troops to Ukraine in event of peace deal with Russia</div>
+                        </div>
+                        
+                        <div class="trending-item d-flex align-items-start">
+                            <div class="trending-number">2</div>
+                            <div class="trending-title">European leaders criticize Trump's foreign policies at Davos</div>
+                        </div>
+                        
+                        <div class="trending-item d-flex align-items-start">
+                            <div class="trending-number">3</div>
+                            <div class="trending-title">How Ukrainians are staying warm during the toughest winter in years</div>
+                        </div>
+                        
+                        <div class="trending-item d-flex align-items-start">
+                            <div class="trending-number">4</div>
+                            <div class="trending-title">Russia says any foreign forces in Ukraine would be 'legitimate targets'</div>
+                        </div>
+                        
+                        <div class="trending-item d-flex align-items-start">
+                            <div class="trending-number">5</div>
+                            <div class="trending-title">Trump's gunboat diplomacy presents peril for Putin</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Coverage -->
+                    <div class="related-links">
+                        <div class="related-title">Related Coverage</div>
+                        
+                        <div class="related-item">
+                            <a href="#" class="text-decoration-none text-dark fw-bold">The Human Cost: Documenting Civilian Casualties</a>
+                            <div class="text-muted small mt-1">Interactive report</div>
+                        </div>
+                        
+                        <div class="related-item">
+                            <a href="#" class="text-decoration-none text-dark fw-bold">Timeline: Two Years of War in Ukraine</a>
+                            <div class="text-muted small mt-1">Visual chronology</div>
+                        </div>
+                        
+                        <div class="related-item">
+                            <a href="#" class="text-decoration-none text-dark fw-bold">Military Analysis: Weapons Changing the Battlefield</a>
+                            <div class="text-muted small mt-1">Technology focus</div>
+                        </div>
+                        
+                        <div class="related-item">
+                            <a href="#" class="text-decoration-none text-dark fw-bold">Sanctions Tracker: Measuring Economic Impact</a>
+                            <div class="text-muted small mt-1">Data visualization</div>
+                        </div>
+                        
+                        <div class="related-item">
+                            <a href="#" class="text-decoration-none text-dark fw-bold">Refugee Stories: Lives Displaced by Conflict</a>
+                            <div class="text-muted small mt-1">Personal narratives</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Content Sections -->
+            <div class="container_lead-plus-headlines mt-5">
+                <div class="container__title">Featured Stories</div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="container_lead-plus-headlines__item">
+                            <div class="container__item-media">
+                                <img src="https://images.unsplash.com/photo-1634141621397-a8e00c86384b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Ukraine conflict">
+                            </div>
+                            <div class="container__headline">
+                                <span class="container__headline-text">Ukraine's Resilience: How Citizens Adapt to War Conditions</span>
+                            </div>
+                            <div class="article-meta">
+                                <span class="timestamp">1 day ago</span>
+                                <span class="category">Special Report</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container_lead-plus-headlines__item">
+                            <div class="container__item-media">
+                                <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Winter in Ukraine">
+                            </div>
+                            <div class="container__headline">
+                                <span class="container__headline-text">Winter Warfare: How Weather Impacts the Battlefield</span>
+                            </div>
+                            <div class="article-meta">
+                                <span class="timestamp">2 days ago</span>
+                                <span class="category">Military Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Vertical Strip Content -->
+            <div class="container_vertical-strip">
+                <div class="container__title">Latest Updates</div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="container_vertical-strip__item">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="container__item-media">
+                                        <img src="https://images.unsplash.com/photo-1626304892986-38b3b5d1b8b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                             alt="Sanctions impact">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="container__headline">
+                                        <span class="container__headline-text" style="font-size: 1.1rem;">EU Prepares New Sanctions Package Against Russia</span>
+                                    </div>
+                                    <div class="article-meta">
+                                        <span class="timestamp">3 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container_vertical-strip__item">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="container__item-media">
+                                        <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                             alt="Refugee crisis">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="container__headline">
+                                        <span class="container__headline-text" style="font-size: 1.1rem;">UN Reports Increase in Ukrainian Refugee Numbers</span>
+                                    </div>
+                                    <div class="article-meta">
+                                        <span class="timestamp">5 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grid 4 Content -->
+            <div class="container_grid-4">
+                <div class="container__title">More Coverage</div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="container_grid-4__item">
+                            <div class="container__item-media">
+                                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Economic impact">
+                            </div>
+                            <div class="container__headline">
+                                <span class="container__headline-text" style="font-size: 1rem;">Global Economic Impact of the Conflict</span>
+                            </div>
+                            <div class="article-meta">
+                                <span class="timestamp">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="container_grid-4__item">
+                            <div class="container__item-media">
+                                <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Energy crisis">
+                            </div>
+                            <div class="container__headline">
+                                <span class="container__headline-text" style="font-size: 1rem;">Europe's Energy Strategy Post-Conflict</span>
+                            </div>
+                            <div class="article-meta">
+                                <span class="timestamp">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="container_grid-4__item">
+                            <div class="container__item-media">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Humanitarian aid">
+                            </div>
+                            <div class="container__headline">
+                                <span class="container__headline-text" style="font-size: 1rem;">Humanitarian Aid Efforts in Ukraine</span>
+                            </div>
+                            <div class="article-meta">
+                                <span class="timestamp">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="container_grid-4__item">
+                            <div class="container__item-media">
+                                <img src="https://images.unsplash.com/photo-1580265868749-9d0ad2c5c1d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Diplomatic efforts">
+                            </div>
+                            <div class="container__headline">
+                                <span class="container__headline-text" style="font-size: 1rem;">Diplomatic Efforts for Peace Negotiations</span>
+                            </div>
+                            <div class="article-meta">
+                                <span class="timestamp">4 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weather Widget -->
+            <div class="weather-widget">
+                <div class="weather-widget__location">Kyiv, Ukraine</div>
+                <div class="d-flex align-items-center">
+                    <div class="weather-widget__temp">-8°</div>
+                    <div class="ms-3">
+                        <div class="weather-widget__condition">Snowy</div>
+                        <div>Feels like -12°</div>
+                    </div>
+                </div>
+                <div class="weather-widget__details">
+                    <div class="weather-widget__detail">
+                        <div class="weather-widget__detail-value">90%</div>
+                        <div class="weather-widget__detail-label">Humidity</div>
+                    </div>
+                    <div class="weather-widget__detail">
+                        <div class="weather-widget__detail-value">15 km/h</div>
+                        <div class="weather-widget__detail-label">Wind</div>
+                    </div>
+                    <div class="weather-widget__detail">
+                        <div class="weather-widget__detail-value">-12°</div>
+                        <div class="weather-widget__detail-label">Low</div>
+                    </div>
+                    <div class="weather-widget__detail">
+                        <div class="weather-widget__detail-value">-4°</div>
+                        <div class="weather-widget__detail-label">High</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Main Content End -->
+
+    <div id="footer"></div>
+        <script>
+        // Fetch header
+        fetch("../../components/header.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+                initHeader(); // 🔥 Initialize the header after it's in the DOM
+            });
+
+        // Fetch footer
+        fetch("../../components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
