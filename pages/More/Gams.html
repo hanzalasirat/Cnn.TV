@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CNN Games & Puzzles - Test Your Knowledge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <style>
         * {
             margin: 0;
@@ -313,21 +314,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-gamepad"></i>
-                    <h1><span class="cnn-logo">CNN</span> GAMES</h1>
-                </div>
-                <div class="user-actions">
-                    <a href="#"><i class="fas fa-user"></i> Sign In</a>
-                    <a href="#"><i class="fas fa-trophy"></i> Leaderboards</a>
-                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div id="header"></div>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -481,15 +468,23 @@
             </div>
         </div>
     </footer>
-        <script>
-        // Fetch header
-        fetch("../../components/header.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                initHeader(); // 🔥 Initialize the header after it's in the DOM
-            });
-
+    <script>
+        // Ensure DOM is loaded before fetching components
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../../components/header.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after component is loaded
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
+    <script src="../../assets/js/script.js"></script>
+    <script>
         // Fetch footer
         fetch("../../components/footer.html")
             .then(res => res.text())

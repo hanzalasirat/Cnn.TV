@@ -698,16 +698,23 @@
     </main>
     <!-- Footer -->
     <div id="footer"></div>
+    <script>
+        // Ensure DOM is loaded before fetching components
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('./components/header.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after component is loaded
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
     <script src="../assets/js/script.js"></script>
     <script>
-        // Fetch header
-        fetch("./components/header.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("header").innerHTML = data;
-                initHeader(); // 🔥 Initialize the header after it's in the DOM
-            });
-
         // Fetch footer
         fetch("./components/footer.html")
             .then(res => res.text())
