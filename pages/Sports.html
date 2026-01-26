@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Latest sports news,videos,interviwes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+      #first_text:hover{
+          text-decoration: underline;
+      }
+      #image:hover{
+        opacity: 80%;
+      }
+
+      .scroll-container {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .news-card {
+      min-width: 260px;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .news-card img {
+      height: 380px;
+      object-fit: cover;
+    }
+
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+      color: #fff;
+    }
+
+    .time-badge {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    
+
+  </style>
+</head>
+<body>
+
+      <header id="header">
+
+      </header>
+
+<!-- ................header................ -->
+
+      <div class="container">
+        <div class="row">
+            <h1 style="font-weight: bolder;">Sports</h1>
+          <div class="col-lg-6">
+            <div class="first_image">
+                <img id="image" style="border-radius: 20px; height: 400px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2257154240-20260120043440292.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+                <h5 class="my-4" id="first_text"><b>Indiana has gotten to the mountaintop. Staying there might be harder than the climb</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2257154971.jpg?c=original&q=w_1280,c_fill" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">Indiana pulls off the most improbable turnaround in college football history to win its first national championship</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2251890809.jpg?c=original&q=w_860,c_fill/f_avif" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">Buffalo Bills fire Sean McDermott</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2256970976.jpg?c=original&q=w_1280,c_fill" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">Rams end the Bears’ magical run and the Patriots ease past the Texans to set up NFL’s final four</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-2256297356.jpg?c=original&q=w_860,c_fill/f_avif" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">At 45, Venus Williams sets record at Australian Open but falls in the 1st roundBy Associated Press</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2256319170.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+              <h5><b>One-Point Slam winner Jordan Smith on life after beating tennis’ greats to $670,000</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Broncos beat the Bills in OT, but lose their star QB, and Seattle mauls San Francisco in NFL playoffs action</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">New York Giants hire John Harbaugh as head coach</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Senegal wins Africa Cup of Nations after chaotic final against host Morocco</h6>
+            </div>
+            
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Air Force suspends men’s basketball coach Joe Scott indefinitely amid cadet-athlete treatment probe</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">More than a dozen NCAA basketball players charged over rigged games, prosecutors say</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">At 45, Venus Williams sets record at Australian Open but falls in the 1st round</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Bo Nix suffers broken ankle while leading Broncos to playoff win over the Bills, out for the season</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Ole Miss QB Trinidad Chambliss sues NCAA for extra year of eligibility</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-3">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap26018059998786.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+              <h5 class="py-3"><b>NFL coaches have it all wrong when it comes to overtime – or why Sean McDermott’s final big choice might’ve cost him his job</b></h5>
+            </div>
+
+            <div class="first_image pb-3">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2257150315.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+              <h5 class="py-2"><b>Fernando Mendoza and Curt Cignetti take Indiana to the promised land. It took one last gamble to realize the impossible dream</b></h5>
+            </div>
+
+            <div class="first_image pb-3">
+              <img id="image"  style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2256426570.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+              <h5 class="py-3"><b>Player protests, an awful penalty and fan uproar: What happened in the most chaotic AFCON final in history</b></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<div class="container my-5">
+  <h2 class="fw-bold mb-4">On the go</h2>
+
+  <div class="scroll-container">
+
+    <!-- Card 1 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/miamiindianagame-vertclean.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold"></p>
+        <span class="time-badge">⏱ 0:43</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/russia-marathon-thumb.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Runners brave -40°C marathon in Russia</p>
+        <span class="time-badge">⏱ 0:36</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/116446-skierlosesski-vrtc-v1-clean.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Skier lands on one foot after losing ski</p>
+        <span class="time-badge">⏱ 0:30</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/116208-vitinhainterviewthumb200-00-37-26-still002.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Vitinha on Diogo Jota’s legacy</p>
+        <span class="time-badge">⏱ 0:57</span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/thumb-2-20260112103729445.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Dembélé eyes World Cup glory</p>
+        <span class="time-badge">⏱ 1:39</span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/ice-hockey-construction-thumb.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Dembélé eyes World Cup glory</p>
+        <span class="time-badge">⏱ 1:39</span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/116276-chloekiminjured-vrtc-v1-clean.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Dembélé eyes World Cup glory</p>
+        <span class="time-badge">⏱ 1:39</span>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/116060-anthonyjoshuafriends-vrtc-clean-00-00-01-21-still001.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Dembélé eyes World Cup glory</p>
+        <span class="time-badge">⏱ 1:39</span>
+      </div>
+    </div>
+
+     <!-- Card 5 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/ronaldo-1.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Dembélé eyes World Cup glory</p>
+        <span class="time-badge">⏱ 1:39</span>
+      </div>
+    </div>
+
+     <!-- Card 5 -->
+    <div class="card news-card">
+      <img src="https://media.cnn.com/api/v1/images/stellar/prod/battlesexes-thumb-clean.jpg?c=9x16" class="w-100">
+      <div class="card-overlay">
+        <p class="mb-1 fw-bold">Dembélé eyes World Cup glory</p>
+        <span class="time-badge">⏱ 1:39</span>
+      </div>
+    </div>
+
+</div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1 class="py-4"><b>Beyond the field</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2244418697-20260115210813276.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Money is flowing freely in college athletics’ new world disorder. It’s no surprise that gambling is playing a role</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1247096019.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Meet the US Olympic figure skaters: A soldier, a daredevil ice queen and a son who triumphed over tragedy will head to Milan</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/photo-3-20260106133358375.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>This 9-year-old escaped war in Ukraine. Now in the US, she’s tipped to be a future tennis superstar</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2256426570.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Player protests, an awful penalty and fan uproar: What happened in the most chaotic AFCON final in history</b></h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="pt-4 pb-3"><b>In the spotlight</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/still-22235540-365274-413-still.jpg?c=16x9&q=w_1202,c_fill/f_webp" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>‘We have a mission in the US’: France star Ousmane Dembélé tells CNN Sports he’s targeting World Cup glory after huge 2025</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-666382012.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>A tennis player played so poorly that it went viral. Tournament organizers say they should have never let it happen</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/2025-01-26t191810z-1844381269-mt1usatoday25274061-rtrmadp-3-nfl-nfc-championship-washington-commanders-at-philadelphia-eagles.JPG?c=16x9&q=w_1544,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>From Snoop Dogg’s blunt to the Eagles locker room: Inside the wild world of the company changing sports memorabilia</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/32486716-60479506-generated-thumbnail.jpg?c=16x9&q=w_1544,c_fill/f_webp" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>How killing time at a laundromat set Lily Zhang on a path to multiple Olympics</b></h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+            <h1 style="font-weight: bolder;">Watch this</h1>
+          <div class="col-lg-6">
+            <div class="first_image">
+                <img id="image" style="border-radius: 20px; height: 400px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ibtihaj-thumb.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+                <h5 class="my-4" id="first_text"><b>She was the first US athlete to compete in a hijab at an Olympic games. Now she's inspiring the next generation</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/18128702-66236073-generated-thumbnail.jpg?c=16x9&q=w_1280,c_fill" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">Stan Wawrinka looks ahead to his final Australian Open <i class="fa-solid fa-play"></i> 5:38</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/116220-thumb-1.jpg?c=16x9&q=w_1280,c_fill" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">The NFL Eagles hired them so fans don't buy fake memorabilia <i class="fa-solid fa-play"></i> 1:40</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/landry-20251230235616338.jpg?c=16x9&q=w_1280,c_fill" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">Louisiana Gov. spills the most 'unsettling' thing from LSU coaching drama <i class="fa-solid fa-play"></i> 0:53</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/17390187-24530256-generated-thumbnail.jpg?c=16x9&q=w_1280,c_fill" class="w-25" alt="">
+                <h6 class="px-3" id="first_text">Iconic broadcaster Cantor previews biggest-ever World Cup <i class="fa-solid fa-play"></i> 4:09</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-4">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/miamiindianagame-16x9-ll-clean-00-00-06-00-still001.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 id="first_text"><b>Hoosiers win it all in historic season</b></h5>
+            </div>
+
+            <div class="first_image py-4">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/thumb-22210481-6508-052000000001-thumb.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 id="first_text"><b>Kobe Bryant's signed "Grinch" sneakers up for auction</b></h5>
+            </div>
+
+            <div class="first_image py-4">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/92-year-old-sprinter-still-02.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 id="first_text"><b>Scientists are studying this 92-year-old sprinter for clues to her fitness</b></h5>
+            </div>
+
+            
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-3">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1446755370.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 class="py-3" id="first_text"><b>Football fans slam "disgraceful" ticket prices for next year's World Cup</b></h5>
+            </div>
+
+            <div class="first_image py-5">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2247171287.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 class="pt-3" id="first_text"><b>The new manager of the Washington Nationals talks about becoming a dad on the same day he got the job</b></h5>
+            </div>
+
+            <div class="first_image py-5">
+              <img id="image"  style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/97538254-19000530-generated-thumbnail.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 class="py-3" id="first_text"><b>Olympic gold medalist releases roadmap for swimmers of color</b></h5>
+            </div>
+          </div>
+  </div>
+
+  <div class="row">
+    <h1 class="py-4"><b>NFL</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2256807351.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Bo Nix suffers broken ankle while leading Broncos to playoff win over the Bills, out for the season</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2254700198.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Pittsburgh Steelers win AFC North, beating Ravens 26-24 after Baltimore misses game-winning kick as time expires</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 176px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap25365682801111.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Patriots defensive lineman Christian Barmore accused of throwing girlfriend to the ground</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/2016-12-19t064208z-1430990174-mt1usatoday9755648-rtrmadp-3-nfl-new-orleans-saints-at-arizona-cardinals.JPG?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Drew Brees, Larry Fitzgerald lead Pro Football Hall of Fame modern-era finalists</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="pt-4 pb-3"><b>Basketball</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/tyrese-haliburton.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Tyrese Haliburton promises to catch up on his texts in 2026</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2221201891.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">WNBA and players’ union fail to reach new CBA, negotiations continue without extension</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 177px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2249192045.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">NBA Cup faces pressure to terminate its partnership with Emirates over UAE’s alleged role in Sudan crisis</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 177px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap25253684599638.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Dearica Hamby and Las Vegas Aces drop lawsuit over pregnancy discrimination</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="py-4"><b>More US Sports</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 173px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap26009709401651.JPG?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Ole Miss QB Trinidad Chambliss sues NCAA for extra year of eligibility</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/20260116-curt-cignelli-final.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Curt Cignetti’s Hoosier revolution began under Nick Saban. The seeds were sown in 1978 by his father’s call to Saban’s wife</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;  height: 173px;" src="https://media.cnn.com/api/v1/images/stellar/prod/2026-01-01t211417z-1459579205-mt1usatoday27916125-rtrmadp-3-ncaa-football-rose-bowl-alabama-at-indiana.JPG?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">College football’s calendar chaos runs square into the biggest games of the season</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/32842344-82964201-generated-thumbnail.jpg?c=16x9&q=w_1202,c_fill/f_webp" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Skeleton’s governing body dismisses charge of ‘competition manipulation,’ main accuser says her evidence was never considered</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="pt-4 pb-3"><b>Soccer</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap25184326063824.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">‘We want to win it for him’: Vitinha tells CNN Sports why memory of Diogo Jota fuels Portugal’s World Cup dream</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/01kem34qzp4s5h8gyf5wb3d8v7.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Defending champions Crystal Palace knocked out by non-league Macclesfield in giant-killing FA Cup shock</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/2025-12-06t174137z-1150832565-up1elc61d5cjl-rtrmadp-3-soccer-worldcup-draw-schedule.JPG?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Ticket prices raise the question: Will this be the ‘prawn sandwich’ World Cup?</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/20250828-sports-minnesota-aurora-fc.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Mission impossible? How this amateur women’s soccer team plans to keep advocating and go pro</h6>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <h1 class="py-4"><b>Tennis</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2255624403.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Amateur outlasts pros for massive payday at ‘One Point Slam’ ahead of Australian Open</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2253056349.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Kyrgios beats Sabalenka in ‘Battle of the Sexes’ showdown</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;"  src="https://media.cnn.com/api/v1/images/stellar/prod/ap25313265546359.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Serena Williams takes step necessary to return to professional tennis but says she’s ‘NOT coming back’</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2247026231.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Jannik Sinner overcomes Carlos Alcaraz in two tight sets to retain his ATP Finals crown</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="pt-4 pb-3"><b>Golf</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2236557352.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Brooks Koepka returns to PGA Tour under stiff financial penalty just 5 weeks after leaving LIV</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2250594363.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Tiger Woods turns 50. It’s the one time golf’s greats can relate to him</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2250602148.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Scottie Scheffler named PGA Tour Player of the Year after double major win in 2025</h6>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2239401052.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Golfer saves par and ‘both hands’ in close encounter with alligator</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="pt-4 pb-3"><b>Photo galleries</b></h1>
+    <div class="col-lg-6">
+        <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/2025-07-05t075307z-257510046-rc27gfajwl1x-rtrmadp-3-soccer-liverpool-portugal-jota-liverpool.jpg?q=w_3000,c_fill" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">In pictures: Remembering Diogo Jota</h6>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-524076086-20241001004550490.jpg?q=w_3000,c_fill" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Pete Rose’s life in pictures</h6>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <h1 class="pt-4 pb-3"><b>Longform</b></h1>
+    <div class="col-lg-6">
+        <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/li-2.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">What it’s like to compete – and medal – at the taekwon-do world championships as a journalist</h6>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 425px;" src="https://media.cnn.com/api/v1/images/stellar/prod/20251028-ucl-baseball-gfx-02.jpg?c=16x9&q=w_1544,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">This injury has plagued MLB for most of the last century, but a new phenomenon is emerging</h6>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/20251124-womens-soccer-queer-people-final.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Why women’s soccer is so important to queer people</h6>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/1970-01-01t000000z-1-mt1aci468838-rtrmadp-3-sport.jpg?c=16x9&q=w_1544,c_fill/f_avif" class="w-100" alt="">
+        <h6 class="py-3" id="first_text">Jonathan Edwards holds one of track and field’s longest-standing records. His jump still ‘brings a smile’ 30 years on</h6>
+        </div>
+    </div>
+  </div>
+
+  <!-- ............foooter......... -->
+
+  
+</div>
+
+<footer id="footer">
+
+</footer>
+ <script>
+        // Ensure DOM is loaded before fetching components
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../components/header.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after component is loaded
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
+    <script>
+        // Fetch footer
+        fetch("../components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+</body>
+</html>
