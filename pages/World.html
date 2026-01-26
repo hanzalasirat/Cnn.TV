@@ -3,381 +3,943 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOLO News</title>
-    <!-- css -->
-     <link rel="stylesheet" href="../assets/css/style.css">
-     <link rel="stylesheet" href="../assets/css/responsive.css">
-    <!-- js -->
-    <script src="../assets/js/script.js"></script>
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- bootstrap -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-     <style>
+    <title>CNN - Breaking News, Latest News and Videos</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        :root {
+            --cnn-red: #cc0000;
+            --cnn-dark: #0c0c0c;
+            --cnn-gray: #f2f2f2;
+            --cnn-light-gray: #f8f9fa;
+        }
+        
         body {
-  font-family: Arial, sans-serif;
-}
-
-.section-main-title {
-  color: #d71920;
-  font-weight: 800;
-  margin-bottom: 20px;
-}
-
-.main-article-title {
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.article-date {
-  font-size: 12px;
-  color: #999;
-}
-
-.section-sub-title {
-  border-bottom: 2px solid #d71920;
-  padding-bottom: 5px;
-  margin: 30px 0 20px;
-  font-weight: 700;
-}
-
-.small-news img {
-  width: 120px;
-  height: 80px;
-  object-fit: cover;
-}
-
-.sidebar-box {
-  border: 1px solid #ddd;
-  padding: 15px;
-  background: #f9f9f9;
-}
-
-.sidebar-title {
-  font-weight: 700;
-  border-bottom: 2px solid #d71920;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-}
-
-.social-icons i {
-  font-size: 20px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.currency li {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
-  padding: 6px 0;
-}
-
-     </style>
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Additional styles specific to this page */
+        .top-links {
+            font-size: 0.85rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .top-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        .top-links a:hover {
+            color: var(--cnn-red);
+        }
+        
+        .separator {
+            color: #ccc;
+        }
+        
+        /* Breaking News Bar */
+        .breaking-news-bar {
+            background: linear-gradient(90deg, #cc0000, #ff4444);
+            color: white;
+            padding: 8px 0;
+            font-weight: bold;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            color: var(--cnn-red);
+            font-weight: 700;
+            border-bottom: 3px solid var(--cnn-red);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .section-title-alt {
+            color: #333;
+            font-weight: 700;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        /* News Cards */
+        .news-card {
+            transition: all 0.2s ease;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .news-card.no-border {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .news-img {
+            border-radius: 4px;
+            object-fit: cover;
+            width: 100%;
+            height: 200px;
+        }
+        
+        .small-img {
+            height: 120px;
+        }
+        
+        .medium-img {
+            height: 180px;
+        }
+        
+        .large-img {
+            height: 250px;
+        }
+        
+        /* Video Elements */
+        .video-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+        
+        .video-icon {
+            color: var(--cnn-red);
+            margin-right: 5px;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cnn-red);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        /* Regional News */
+        .region-section {
+            margin-bottom: 2rem;
+        }
+        
+        .region-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .local-story {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .local-story:last-child {
+            border-bottom: none;
+        }
+        
+        /* Live Updates */
+        .live-update {
+            border-left: 3px solid var(--cnn-red);
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .live-tag {
+            background: var(--cnn-red);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        
+        /* Two Column Grid */
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+        
+        .col-title {
+            font-weight: 700;
+            color: var(--cnn-red);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        /* Trending Badge */
+        .trending-badge {
+            background: #ff6b6b;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+        }
+        
+        /* Ad Container */
+        .ad-container {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 20px;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        /* More Stories List */
+        .story-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .story-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .story-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Time Stamp */
+        .timestamp {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .news-img {
+                height: 150px;
+            }
+            
+            .two-col-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .top-links {
+                font-size: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .news-img {
+                height: 120px;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="header"></div>
-        <main>
-            <div class="container my-4">
 
-  <!-- HEADER -->
-  <h1 class="section-main-title">World</h1>
-
-  <div class="row">
-
-    <!-- MAIN CONTENT -->
-    <div class="col-lg-8">
-
-      <!-- FEATURE ARTICLE -->
-      <div class="row mb-4">
-        <div class="col-md-6">
-          <h2 class="main-article-title">
-            Herat Saffron Named World’s Best for 10th Consecutive Year
-          </h2>
-          <p class="text-muted small">
-            According to local officials, saffron exports from Afghanistan
-            increased in recent months.
-          </p>
-          <span class="article-date">08 JANUARY 2026</span>
+    <!-- header -->
+     <div id="header"></div>
+     
+    <!-- Breaking News Bar -->
+    <div class="breaking-news-bar">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <span><i class="bi bi-broadcast me-2"></i>BREAKING: Aftermath video of latest ICE shooting contradicts officials' account</span>
+                <span class="d-none d-md-block">LIVE</span>
+            </div>
         </div>
-
-        <div class="col-md-6">
-          <img src="https://tolonews.com/sites/default/files/styles/principal_article_image/public/2026-01/New%20Project%20-%202026-01-07T235720.972.png?itok=kzckQLxT" class="img-fluid">
-        </div>
-      </div>
-
-      <!-- LATEST NEWS -->
-      <h5 class="section-sub-title">LATEST NEWS FROM World</h5>
-
-      <div class="row g-4 mb-4">
-        <div class="col-md-6">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/vlcsnap-2026-01-10-01h38m15s849.png?itok=WQjWG1Yx" class="img-fluid mb-2">
-          <h6>Afghanistan-Pakistan Trade Falls by 53%</h6>
-          <p class="small text-muted">According to data, the volume of trade...</p>
-        </div>
-
-        <div class="col-md-6">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/New%20Project%20%287%29.png?itok=wzCFJ48V" class="img-fluid mb-2">
-          <h6>New Flyover to Ease Gridlock</h6>
-          <p class="small text-muted">Kabul Municipality announced a plan...</p>
-        </div>
-      </div>
-
-      <!-- SMALL NEWS -->
-      <div class="row small-news mb-4">
-        <div class="col-md-6 d-flex mb-3">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/vlcsnap-2026-01-09-03h53m58s171.png?itok=jQnm4csv">
-          <div class="ms-3">
-            <h6>Experts Urge Use of Air Corridors</h6>
-            <small class="text-muted">Yesterday</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex mb-3">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%286%29.png?itok=EfU8zuM6">
-          <div class="ms-3">
-            <h6>Three Major Energy Projects Launched</h6>
-            <small class="text-muted">08 January 2026</small>
-          </div>
-        </div>
-      </div>
-
-        <div class="row small-news mb-4">
-        <div class="col-md-6 d-flex mb-3">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/vlcsnap-2026-01-09-03h53m58s171.png?itok=jQnm4csv">
-          <div class="ms-3">
-            <h6>Experts Urge Use of Air Corridors</h6>
-            <small class="text-muted">Yesterday</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex mb-3">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%286%29.png?itok=EfU8zuM6">
-          <div class="ms-3">
-            <h6>Three Major Energy Projects Launched</h6>
-            <small class="text-muted">08 January 2026</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- MORE NEWS -->
-      <h5 class="section-sub-title">MORE NEWS FROM World</h5>
-
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      <div class="row g-3 mb-4">
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/New%20Project%20%2881%29.png?itok=t5zE-VGp">
-          <div class="ms-3">
-            <h6>Clashes Erupt Over Gold Mines</h6>
-            <small class="text-muted">06 January 2026</small>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex">
-          <img src="https://tolonews.com/sites/default/files/styles/more_section_news/public/2026-01/d%20%282%29.png?itok=OtJY5n0s">
-          <div class="ms-3">
-            <h6>Kandahar Factory Boosts Output</h6>
-            <small class="text-muted">05 January 2026</small>
-          </div>
-        </div>
-      </div>
-      
-
-      <!-- ALSO IN NEWS -->
-      <h5 class="section-sub-title">ALSO IN THE NEWS</h5>
-
-      <div class="row g-4 mb-4">
-        <div class="col-md-4">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/vlcsnap-2026-01-10-01h38m15s849.png?itok=WQjWG1Yx" class="img-fluid">
-          <span class="badge bg-danger mt-2">World</span>
-          <h6 class="mt-2">Afghanistan-Pakistan Trade Falls</h6>
-        </div>
-
-        <div class="col-md-4">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/G-J7kWxXwAEtNz9.png?itok=SrgQmWjl" class="img-fluid">
-          <span class="badge bg-success mt-2">AFGHANISTAN</span>
-          <h6 class="mt-2">Younus Akhundzada Statement</h6>
-        </div>
-
-        <div class="col-md-4">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/1550430.jpg?itok=mnSbsPhy" class="img-fluid">
-          <span class="badge bg-primary mt-2">WORLD</span>
-          <h6 class="mt-2">Al-Zubaidi’s Secret Escape</h6>
-        </div>
-      </div>
-
-       <div class="row g-4 mb-4">
-        <div class="col-md-4">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/vlcsnap-2026-01-10-01h38m15s849.png?itok=WQjWG1Yx" class="img-fluid">
-          <span class="badge bg-danger mt-2">World</span>
-          <h6 class="mt-2">Afghanistan-Pakistan Trade Falls</h6>
-        </div>
-
-        <div class="col-md-4">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/G-J7kWxXwAEtNz9.png?itok=SrgQmWjl" class="img-fluid">
-          <span class="badge bg-success mt-2">AFGHANISTAN</span>
-          <h6 class="mt-2">Younus Akhundzada Statement</h6>
-        </div>
-
-        <div class="col-md-4">
-          <img src="https://tolonews.com/sites/default/files/styles/also_in_the_news_image/public/2026-01/1550430.jpg?itok=mnSbsPhy" class="img-fluid">
-          <span class="badge bg-primary mt-2">WORLD</span>
-          <h6 class="mt-2">Al-Zubaidi’s Secret Escape</h6>
-        </div>
-      </div>
-
     </div>
 
-    <!-- SIDEBAR -->
-    <div class="col-lg-4">
-        
-      <!-- RELATED STORIES -->
-      <div class="sidebar-box mb-4">
-        <h6 class="sidebar-title">RELATED STORIES</h6>
-        <ol>
-          <li>Real Estate Worldes Criticize Halt in Distribution</li>
-          <li>Czech Worldmen Willing to Invest</li>
-          <li>Govt Finance Units Slammed</li>
-        </ol>
-      </div>
-      <br><br><br><br><br>
-      <!-- FOLLOW US -->
-      <div class="sidebar-box mb-4">
-        <h6 class="sidebar-title">FOLLOW US</h6>
-        <div class="social-icons">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-twitter"></i>
-          <i class="bi bi-youtube"></i>
-          <i class="bi bi-instagram"></i>
+    <!-- Top Links -->
+    <div class="container">
+        <div class="top-links d-flex flex-wrap align-items-center gap-2 py-2">
+            <a href="#"><h6 class="mb-0"><span style="color: red;">Live Updates</span> : Trump presidency</h6></a>
+            <span class="separator">|</span>
+            <a href="#"><h6 class="mb-0"><span style="color: red;">Trending</span> : NFL playoffs</h6></a>
+            <span class="separator">|</span>
+            <a href="#"><h6 class="mb-0">Trump tariff threats</h6></a>
+            <span class="separator">|</span>
+            <a href="#"><h6 class="mb-0">Credit background checks</h6></a>
+            <span class="separator">|</span>
+            <a href="#"><h6 class="mb-0">‘Great Health Care Plan’</h6></a>
         </div>
-      </div>
-      <br><br><br><br><br>
-
-      <!-- NEWSLETTER -->
-      <div class="sidebar-box mb-4">
-        <h6 class="sidebar-title">Newsletter</h6>
-        <input type="email" class="form-control mb-2" placeholder="Your email">
-        <button class="btn btn-danger w-100">OK</button>
-      </div>
-      <br><br><br><br><br>
-
-      <!-- CURRENCY -->
-      <div class="sidebar-box">
-        <h6 class="sidebar-title">CURRENCY RATES</h6>
-        <ul class="list-unstyled currency">
-          <li>1 USD <span>66.12 AFN</span></li>
-          <li>1 EUR <span>77.08 AFN</span></li>
-          <li>1000 IRR <span>0.90 AFN</span></li>
-          <li>1000 PKR <span>228 AFN</span></li>
-        </ul>
-      </div>
-
     </div>
-  </div>
-</div>
-        </main>
+
+    <main class="container my-4">
+        <div class="row g-4">
+            <!-- Main Content Column -->
+            <div class="col-lg-8">
+                <!-- ICE Shooting Investigation Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">INVESTIGATION: ICE SHOOTING</h2>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-8">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                             alt="ICE protest" 
+                                             class="img-fluid large-img mb-3">
+                                        <span class="video-badge"><i class="bi bi-play-fill me-1"></i>WATCH</span>
+                                    </div>
+                                    <h1 class="h3 fw-bold mb-3">Aftermath video of latest ICE shooting involving a man officials say assaulted an officer contradicts officials' account</h1>
+                                    <p class="lead">Newly obtained footage appears to show different sequence of events than initially reported by Department of Homeland Security officials.</p>
+                                    <div class="d-flex align-items-center text-muted">
+                                        <span class="me-3"><i class="bi bi-clock me-1"></i>Updated 45 minutes ago</span>
+                                        <span><i class="bi bi-chat me-1"></i>1.2K comments</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="news-card no-border">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="National Guard" 
+                                         class="img-fluid medium-img mb-2">
+                                    <h5 class="h6 fw-bold">1,500 soldiers on standby for possible Minnesota deployment, source says, as state mobilizes National Guard</h5>
+                                    <p class="small text-muted">Preparations underway amid escalating tensions over immigration enforcement.</p>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card no-border">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Minneapolis protest" 
+                                         class="img-fluid medium-img mb-2">
+                                    <h5 class="h6 fw-bold">Far-right activist chased away by counterdemonstrators while leading small rally in Minneapolis</h5>
+                                    <p class="small text-muted">Clashes erupt as opposing groups face off near federal building.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Stories -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">911 transcripts, incident reports and videos show how an ICE agent shot a mother of 3 at 'point blank range'</h5>
+                                    <p class="small text-muted">New documents reveal chilling details of the fatal encounter that sparked nationwide protests.</p>
+                                    <span class="timestamp">Updated 2 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Minneapolis family, six children tear gassed after they were caught in clash between ICE and protesters</h5>
+                                    <p class="small text-muted">Family describes harrowing experience of being caught in crossfire during downtown protest.</p>
+                                    <span class="timestamp">Updated 3 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Minnesota AG: ICE agents in Minneapolis are 'reckless' and 'not trained well'</h5>
+                                    <p class="small text-muted">State's top lawyer calls for federal investigation into enforcement tactics.</p>
+                                    <span class="timestamp">Updated 4 hours ago</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Synagogue arson" 
+                                         class="img-fluid medium-img mb-2">
+                                    <h5 class="fw-bold">They saw Mississippi's largest synagogue bombed by the KKK in 1967. Seeing it now destroyed by arson feels like 'deja vu'</h5>
+                                    <p class="small text-muted">Elderly congregants recount painful history as community faces new attack.</p>
+                                    <span class="timestamp">Updated 5 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">How the unrest of 2020 cast a long shadow on Minneapolis in its conflict with ICE</h5>
+                                    <p class="small text-muted">Analysis of how past protests shape current tensions in the city.</p>
+                                    <span class="timestamp">Updated 6 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Judge puts limits on federal agents in Minnesota, as protests cool with the weather</h5>
+                                    <p class="small text-muted">Federal court imposes restrictions on ICE operations amid ongoing demonstrations.</p>
+                                    <span class="timestamp">Updated 7 hours ago</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Video Section -->
+                <section class="mb-5">
+                    <h2 class="section-title">VIDEO</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                             alt="Bernice King" 
+                                             class="img-fluid medium-img mb-2">
+                                        <span class="video-badge"><i class="bi bi-play-fill me-1"></i>4:32</span>
+                                    </div>
+                                    <h5 class="fw-bold">Bernice King: ICE needs to study MLK Jr.'s nonviolence teachings</h5>
+                                    <p class="small text-muted">MLK's daughter speaks out on current protests and law enforcement tactics.</p>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                             alt="DHS agent" 
+                                             class="img-fluid medium-img mb-2">
+                                        <span class="video-badge"><i class="bi bi-play-fill me-1"></i>2:18</span>
+                                    </div>
+                                    <h5 class="fw-bold">Video appears to show DHS agent knee detainee</h5>
+                                    <p class="small text-muted">New footage raises questions about use of force during arrests.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Video Stories -->
+                    <div class="row g-3 mt-2">
+                        <div class="col-md-4">
+                            <div class="news-card no-border">
+                                <a href="#" class="text-decoration-none text-dark d-flex align-items-start">
+                                    <i class="bi bi-play-btn video-icon mt-1 me-2"></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">AOC, Erika Kirk, and a generation without a party</h6>
+                                        <small class="text-muted">12:45</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="news-card no-border">
+                                <a href="#" class="text-decoration-none text-dark d-flex align-items-start">
+                                    <i class="bi bi-play-btn video-icon mt-1 me-2"></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">From booze to betting to fitness: How GLP-1s are changing behavior</h6>
+                                        <small class="text-muted">8:22</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="news-card no-border">
+                                <a href="#" class="text-decoration-none text-dark d-flex align-items-start">
+                                    <i class="bi bi-play-btn video-icon mt-1 me-2"></i>
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Attorney for family of woman killed by ICE speaks to Anderson Cooper</h6>
+                                        <small class="text-muted">15:30</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Politics & Business Grid -->
+                <section class="mb-5">
+                    <div class="two-col-grid">
+                        <!-- Politics Column -->
+                        <div>
+                            <h3 class="col-title">POLITICS</h3>
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Trump vows executive order to protect Army-Navy game from competing football broadcasts</h5>
+                                    <p class="small text-muted">President says he will protect tradition of annual military academy game.</p>
+                                    <span class="timestamp">Updated 1 hour ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">'60 Minutes' is set to finally air the shelved 'Inside CECOT' segment tonight</h5>
+                                    <p class="small text-muted">Controversial investigation into government surveillance program to air after months of delay.</p>
+                                    <span class="timestamp">Updated 2 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Tired of AI, people are committing to the analog lifestyle in 2026</h5>
+                                    <p class="small text-muted">Growing movement rejects digital overload for simpler living.</p>
+                                    <span class="timestamp">Updated 3 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">American Battleground: Demolition Man – How Trump's first year back is changing the nation's capital</h5>
+                                    <p class="small text-muted">Analysis of presidential impact on Washington politics and culture.</p>
+                                    <span class="timestamp">Updated 4 hours ago</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Business Column -->
+                        <div>
+                            <h3 class="col-title">BUSINESS</h3>
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Trump has tariffs. Europe has a 'trade bazooka.' This Greenland standoff could get ugly, fast</h5>
+                                    <p class="small text-muted">Analysis of escalating trade tensions between US and European Union.</p>
+                                    <span class="timestamp">Updated 1 hour ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="AI data centers" 
+                                         class="img-fluid small-img mb-2">
+                                    <h5 class="fw-bold">Here's how AI data centers affect the electrical grid</h5>
+                                    <p class="small text-muted">Massive energy demands raise infrastructure concerns nationwide.</p>
+                                    <span class="timestamp">Updated 2 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Recent Trump investments reignite concerns around potential conflicts of interest</h5>
+                                    <p class="small text-muted">Ethics experts question business dealings of former president's family trust.</p>
+                                    <span class="timestamp">Updated 3 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">A month after Epstein files deadline, Americans still think government is intentionally holding back info, CNN poll finds</h5>
+                                    <p class="small text-muted">Public skepticism remains high about transparency in high-profile case.</p>
+                                    <span class="timestamp">Updated 4 hours ago</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ad Section -->
+                    <div class="ad-container">
+                        <h6 class="text-muted mb-2">Advertisement</h6>
+                        <h5 class="fw-bold">More than a game, 24/7 coverage of the world's top stars</h5>
+                        <p class="small mb-3">Stay updated with the latest sports news and analysis</p>
+                        <button class="btn btn-primary btn-sm">Subscribe Now</button>
+                        <p class="small text-muted mt-2 mb-0">Ad Feedback</p>
+                    </div>
+                </section>
+                
+                <!-- More US News -->
+                <section class="mb-5">
+                    <h2 class="section-title">MORE US NEWS</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">What do betting markets know that pollsters don't? Smerconish investigates</h5>
+                                    <p class="small text-muted">Analysis of political prediction markets versus traditional polling methods.</p>
+                                    <span class="timestamp">Updated 2 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Immigrant advocacy" 
+                                         class="img-fluid small-img mb-2">
+                                    <h5 class="fw-bold">Immigrant advocacy group on patrol in Minneapolis</h5>
+                                    <p class="small text-muted">Community organization monitors ICE activities in immigrant neighborhoods.</p>
+                                    <span class="timestamp">Updated 3 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Trump advisers concerned about internal polling showing a drop in support for his immigration tactics, Axios reports</h5>
+                                    <p class="small text-muted">Internal surveys suggest public concern over enforcement methods.</p>
+                                    <span class="timestamp">Updated 4 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">New York Times video analysis sheds light on ICE shooting</h5>
+                                    <p class="small text-muted">Forensic analysis of footage provides new insights into controversial incident.</p>
+                                    <span class="timestamp">Updated 5 hours ago</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Trump's week at the White House includes a visit from Machado and an ongoing battle with Jay Powell</h5>
+                                    <p class="small text-muted">Busy schedule for president amid multiple political and economic challenges.</p>
+                                    <span class="timestamp">Updated 2 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Former DOJ Attorney speaks out after resigning, says Department of Justice is 'no longer founded on the truth'</h5>
+                                    <p class="small text-muted">High-profile resignation raises questions about department's direction.</p>
+                                    <span class="timestamp">Updated 3 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Lawyers for alleged Charlie Kirk assassin try to get prosecutor thrown off case</h5>
+                                    <p class="small text-muted">Legal maneuver in high-profile attempted assassination case.</p>
+                                    <span class="timestamp">Updated 4 hours ago</span>
+                                </a>
+                            </div>
+                            
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <h5 class="fw-bold">Federal agents arrest protester in costume after they danced in front of federal building</h5>
+                                    <p class="small text-muted">Unusual arrest raises questions about protest rights and law enforcement discretion.</p>
+                                    <span class="timestamp">Updated 5 hours ago</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Right Sidebar -->
+            <div class="col-lg-4">
+                <!-- Live Updates -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title"><i class="bi bi-broadcast me-2"></i>LIVE UPDATES</h3>
+                    
+                    <div class="live-update">
+                        <span class="live-tag">LIVE</span>
+                        <h5 class="fw-bold mb-2">Minnesota Gov. Tim Walz mobilizes state National Guard amid ongoing protests</h5>
+                        <p class="small mb-2">Governor authorizes deployment as tensions escalate over ICE operations.</p>
+                        <span class="timestamp">Updated 15 min ago</span>
+                    </div>
+                    
+                    <div class="live-update">
+                        <span class="live-tag">LIVE</span>
+                        <h5 class="fw-bold mb-2">Alleged Charlie Kirk assassin Tyler Robinson appears in court as defense pushes to disqualify prosecutors</h5>
+                        <p class="small mb-2">Legal proceedings continue in attempted assassination case.</p>
+                        <span class="timestamp">Updated 45 min ago</span>
+                    </div>
+                    
+                    <div class="live-update">
+                        <span class="live-tag">LIVE</span>
+                        <h5 class="fw-bold mb-2">We went to the 'Mom Dance Party'</h5>
+                        <p class="small mb-2">Inside the viral dance event bringing mothers together across the country.</p>
+                        <span class="timestamp">Updated 1 hour ago</span>
+                    </div>
+                    
+                    <a href="#" class="btn btn-outline-danger btn-sm w-100 mt-3">Follow All Updates</a>
+                </div>
+                
+                <!-- Featured Stories -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">FEATURED STORIES</h3>
+                    
+                    <ul class="story-list">
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold">The unknown hero of MLK's 'I Have a Dream' speech</h6>
+                                <p class="small text-muted mb-1">Untold story of key figure in civil rights history.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold">Amid a culture war over trans athletes, Team USA's Chris Mosier says he'll stay the course</h6>
+                                <p class="small text-muted mb-1">Transgender triathlete speaks out against proposed sports bans.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold">Prayer books, a Moses sculpture and a holy horn are among items damaged or lost after alleged arson at Mississippi synagogue</h6>
+                                <p class="small text-muted mb-1">Community mourns loss of sacred objects.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold">Why people in 2026 are hung up on 2016</h6>
+                                <p class="small text-muted mb-1">Cultural analysis of decade-long nostalgia cycle.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold">Meet the Los Angeles Fire Department crew tasked with protecting communities from the next wildfire disaster</h6>
+                                <p class="small text-muted mb-1">Specialized team prepares for increasingly severe fire seasons.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold">Ex-husband indicted by grand jury in slaying of couple found in their Ohio home</h6>
+                                <p class="small text-muted mb-1">Latest development in ongoing murder investigation.</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Around the Nation -->
+                <div class="sidebar-section">
+                    <h3 class="section-title-alt">Around the Nation</h3>
+                    
+                    <!-- East Region -->
+                    <div class="region-section">
+                        <h4 class="region-title">EAST</h4>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">Go Caboodle: New site gives parents control over what content kids view</h6>
+                                <p class="small text-muted mb-0">WPTZ • 2 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">WBHB: Woman fosters more than a dozen dogs</h6>
+                                <p class="small text-muted mb-0">WPBF • 3 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">WLEx: TikTok taste test helping business boom</h6>
+                                <p class="small text-muted mb-0">WTAT • 4 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">WSVN: Bodycam video shows arrest of erratic driver</h6>
+                                <p class="small text-muted mb-0">WMAR • 5 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">WYFF: Couple in their 70's found dead in SC home</h6>
+                                <p class="small text-muted mb-0">WLOS • 6 hours ago</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Central Region -->
+                    <div class="region-section">
+                        <h4 class="region-title">CENTRAL</h4>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">'Swans looking for love again': Community raises money for male swans to have mates</h6>
+                                <p class="small text-muted mb-0">KMOV • 2 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">KJRH: Car burglary takes irreplaceable treasures</h6>
+                                <p class="small text-muted mb-0">WXYZ • 3 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">KTRK: Former NFL player inspires new Disney Jr. series</h6>
+                                <p class="small text-muted mb-0">WKBT • 4 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">WDBT: Packers fans score dream gender reveal party</h6>
+                                <p class="small text-muted mb-0">WISN • 5 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">WLUK: Teacher accused of giving students massages</h6>
+                                <p class="small text-muted mb-0">WCPO • 6 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">KCRG: University saves rare chestnut tree</h6>
+                                <p class="small text-muted mb-0">WEST • 7 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">KOAT: Route 66's history comes alive through VR</h6>
+                                <p class="small text-muted mb-0">KMGH • 8 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">KFSN: Postal worker robbed while delivering mail</h6>
+                                <p class="small text-muted mb-0">KABC • 9 hours ago</p>
+                            </a>
+                        </div>
+                        
+                        <div class="local-story">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">KRDO: Cat missing for a decade reunited with family</h6>
+                                <p class="small text-muted mb-0">KCRA • 10 hours ago</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-outline-secondary btn-sm w-100 mt-3">More Local News</a>
+                </div>
+                
+                <!-- Trending Now -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">TRENDING NOW</h3>
+                    
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item border-0 px-0 py-2">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">Trump's ex-campaign adviser says he carries passport with him now because of ICE</h6>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 px-0 py-2">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">We went to the 'Mom Dance Party'</h6>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 px-0 py-2">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">Why people in 2026 are hung up on 2016</h6>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 px-0 py-2">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">From booze to betting to fitness: How GLP-1s are changing behavior</h6>
+                            </a>
+                        </li>
+                        <li class="list-group-item border-0 px-0 py-2">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h6 class="fw-bold mb-1">Meet the Los Angeles Fire Department crew</h6>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <div id="footer"></div>
+    <script>
+        // Ensure DOM is loaded before fetching components
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../components/header.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after component is loaded
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Fetch footer
+        fetch("../components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Live update timers
+        function updateLiveTimers() {
+            const timers = document.querySelectorAll('.live-update .timestamp');
+            timers.forEach(timer => {
+                const text = timer.textContent;
+                if (text.includes('min ago')) {
+                    const minutes = parseInt(text);
+                    if (!isNaN(minutes)) {
+                        const newMinutes = minutes + 1;
+                        timer.textContent = `Updated ${newMinutes} min ago`;
+                    }
+                }
+            });
+        }
+        
+        // Update every minute
+        setInterval(updateLiveTimers, 60000);
+        
+        // Video play functionality
+        document.querySelectorAll('.video-badge, .video-icon').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const card = this.closest('.news-card');
+                if (card) {
+                    const title = card.querySelector('h5, h6').textContent;
+                    alert(`Playing video: ${title}`);
+                }
+            });
+        });
+        
+        // Trending list hover effects
+        document.querySelectorAll('.list-group-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f8f9fa';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+            });
+        });
+    </script>
 </body>
 </html>

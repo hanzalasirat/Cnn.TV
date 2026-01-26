@@ -3,139 +3,754 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOLO News</title>
-    <!-- css -->
-     <link rel="stylesheet" href="./assets/css/style.css">
-     <link rel="stylesheet" href="./assets/css/responsive.css">
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- bootstrap -->
-     <link rel="stylesheet" href="./assets/Bootstrapt/css/bootstrap-theme.min.css">
-     <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>CNN - Breaking News, Latest News and Videos</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
 </head>
-<style>
-  .top-links a{
-    text-decoration: none;
-  }
-  .top-links h5{
-    color: black;
-  }
-</style>
 <body>
-    <!-- Header Section -->
-    <div id="header"></div>
-
-  <!-- all contante of the pagse -->
-    <main>
-
-      <!-- Top Links -->
-      <div class="container">
-        <div class="top-links d-flex flex-wrap align-items-center gap-2">
-          <a href="#"><h5><span style="color: red;">Live Updates</span> : Trump presidency</h5></a>
-          <span class="separator">|</span>
-          <a href="#"><h5><span style="color: red;">Trending</span> : NFL playoffs</h5></a>
-          <span class="separator">|</span>
-          <a href="#"><h5>Trump tariff threats</h5></a>
-          <span class="separator">|</span>
-          <a href="#"><h5>Credit background checks</h5></a>
-          <span class="separator">|</span>
-          <a href="#"><h5>‘Great Health Care Plan’</h5></a>
+    <!-- header -->
+     <div id="header"></div>
+    <!-- Top Breaking News Bar -->
+    <div class="bg-light border-bottom">
+        <div class="container">
+            <div class="d-flex align-items-center py-2">
+                <span class="breaking-news me-3">BREAKING</span>
+                <span class="flex-grow-1">Europe's 'trade bazooka' could blow up in Trump's face as tensions escalate over Greenland tariffs</span>
+                <span class="text-muted ms-3 d-none d-md-block">Live</span>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <!-- First Section  -->
-
-    <section class="container my-4">
-      <div class="row">
-
-        <!-- Left Sidebar -->
-        <aside class="col-lg-3 col-md-4 d-none d-md-block">
-          <h5>Top Stories</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">US Politics Updates</a></li>
-            <li><a href="#">Global Economy News</a></li>
-            <li><a href="#">Health & Science</a></li>
-            <li><a href="#">Tech & Innovation</a></li>
-          </ul>
-        </aside>
-
-        <!-- Middle: Main News -->
-        <main class="col-lg-6 col-md-8">
-          <h2>Latest News</h2>
-
-          <!-- News Article 1 -->
-          <div class="card mb-3">
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="News Image">
-            <div class="card-body">
-              <h5 class="card-title">Breaking: Major Political Event</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
-              <a href="#" class="btn btn-sm btn-primary">Read More</a>
+    <main>
+        <!-- Top Links -->
+        <div class="container">
+            <div class="top-links d-flex flex-wrap align-items-center gap-2 py-2">
+                <a href="#"><h6 class="mb-0"><span style="color: red;">Live Updates</span> : Trump presidency</h6></a>
+                <span class="separator">|</span>
+                <a href="#"><h6 class="mb-0"><span style="color: red;">Trending</span> : NFL playoffs</h6></a>
+                <span class="separator">|</span>
+                <a href="#"><h6 class="mb-0">Trump tariff threats</h6></a>
+                <span class="separator">|</span>
+                <a href="#"><h6 class="mb-0">Credit background checks</h6></a>
+                <span class="separator">|</span>
+                <a href="#"><h6 class="mb-0">‘Great Health Care Plan’</h6></a>
             </div>
-          </div>
+        </div>
 
-          <!-- News Article 2 -->
-          <div class="card mb-3">
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="News Image">
-            <div class="card-body">
-              <h5 class="card-title">Sports: Exciting Game Highlights</h5>
-              <p class="card-text">Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-              <a href="#" class="btn btn-sm btn-primary">Read More</a>
+        <!-- First Section -->
+        <section class="container my-4">
+            <div class="row g-4">
+                <!-- Left Sidebar -->
+                <aside class="col-lg-3 col-md-4">
+                    <!-- More Top Stories -->
+                    <div class="mb-4">
+                        <h3 class="section-title">MORE TOP STORIES</h3>
+                        
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Chile fires" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">Chile fires kill at least 18 as firefighters battle extreme heat, winds</h5>
+                                <p class="small text-muted">Massive wildfires rage through central Chile as temperatures soar</p>
+                            </a>
+                        </div>
+                        
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Train derailment" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">2 trains derail in southern Spain, leaving at least 5 dead, more than 20 injured</h5>
+                                <p class="small text-muted">Rescue operations continue at crash site near Seville</p>
+                            </a>
+                        </div>
+                        
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1558021211-6d140bf6c86b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Syria military" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">Syria's military has seized swathes of Kurdish-held territory. Here's what we know</h5>
+                                <p class="small text-muted">Analysis of the latest military developments in northern Syria</p>
+                            </a>
+                        </div>
+                        
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Avalanche" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">Eight skiers killed in avalanches in Austria</h5>
+                                <p class="small text-muted">Deadly avalanches strike popular ski resorts in the Alps</p>
+                            </a>
+                        </div>
+                        
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Gaza ceasefire" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">The man with the near-impossible task: Turning the US-backed Gaza ceasefire agreement into peace</h5>
+                                <p class="small text-muted">Special envoy faces monumental challenge in Middle East diplomacy</p>
+                            </a>
+                        </div>
+                        
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1575320181282-9afab400332f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Washington DC" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">How Trump's first year back is changing the nation's capital</h5>
+                                <p class="small text-muted">A look at the political transformation of Washington under the new administration</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Widget -->
+                    <div class="sidebar-widget">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-images me-2"></i>The week in photos</h5>
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1543348750-466b63f2e61a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                     alt="Gallery 1" 
+                                     class="img-fluid rounded">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                     alt="Gallery 2" 
+                                     class="img-fluid rounded">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                     alt="Gallery 3" 
+                                     class="img-fluid rounded">
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-outline-danger btn-sm mt-3 w-100">View Gallery</a>
+                    </div>
+                </aside>
+
+                <!-- Middle: Main News -->
+                <div class="col-lg-6 col-md-8">
+                    <!-- Main Headline -->
+                    <div class="mb-4">
+                        <h1 class="main-headline">A stunned Europe finally wakes up to Trump's Greenland threat</h1>
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1519677100203-4f3c1f0f8c7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Europe Greenland threat" 
+                                 class="img-fluid rounded mb-3">
+                            <span class="video-duration"><i class="bi bi-play-fill me-1"></i>2:45</span>
+                        </div>
+                        <p class="lead">European leaders scramble to respond as President Trump threatens massive tariffs if Denmark doesn't reconsider selling Greenland to the United States.</p>
+                        <div class="d-flex align-items-center text-muted mb-3">
+                            <span class="me-3"><i class="bi bi-clock me-1"></i>Updated 2 hours ago</span>
+                            <span><i class="bi bi-chat me-1"></i>2.4K comments</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Live Updates -->
+                    <div class="mb-5">
+                        <h3 class="section-title">LIVE UPDATES</h3>
+                        <div class="live-update">
+                            <h5 class="fw-bold">British Prime Minister Starmer tells Trump that levying tariffs over Greenland 'is wrong'</h5>
+                            <p class="small text-muted">Updated 15 minutes ago</p>
+                            <p>In a tense phone call, the British PM warned of consequences for transatlantic relations.</p>
+                        </div>
+                        <div class="live-update">
+                            <h5 class="fw-bold">Trump vows executive order to protect Army-Navy game from competing football broadcasts</h5>
+                            <p class="small text-muted">Updated 45 minutes ago</p>
+                            <p>The President says he will protect the tradition of the annual military academy football game.</p>
+                        </div>
+                        <div class="live-update">
+                            <h5 class="fw-bold">CNN Poll: Democrats deeply motivated for midterms despite having dismal views of party leaders</h5>
+                            <p class="small text-muted">Updated 1 hour ago</p>
+                            <p>New poll shows surprising enthusiasm among Democratic voters ahead of crucial elections.</p>
+                        </div>
+                        <a href="#" class="btn btn-danger mt-2">Follow Live Updates</a>
+                    </div>
+                    
+                    <!-- 3 Column News -->
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         alt="NATO meeting" 
+                                         class="img-fluid news-img small-img mb-2">
+                                    <h5 class="h6 fw-bold">NATO chief says he has spoken to Trump about Greenland</h5>
+                                    <p class="small text-muted">Jens Stoltenberg attempts to mediate between allies</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div class="position-relative">
+                                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                             alt="AI data centers" 
+                                             class="img-fluid news-img small-img mb-2">
+                                        <span class="video-duration"><i class="bi bi-play-fill me-1"></i>1:05</span>
+                                    </div>
+                                    <h5 class="h6 fw-bold">Jake Tapper breaks down Trump's new tariff announcement</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="news-card">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         alt="Denmark protest" 
+                                         class="img-fluid news-img small-img mb-2">
+                                    <h5 class="h6 fw-bold">Thousands in Denmark rally against Trump: 'We don't want to be Americans'</h5>
+                                    <p class="small text-muted">Massive protests erupt in Copenhagen over Greenland threats</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Analysis Section -->
+                    <div class="mb-5">
+                        <h3 class="section-title">ANALYSIS</h3>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="news-card">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                             alt="Europe response" 
+                                             class="img-fluid news-img medium-img mb-2">
+                                        <h5 class="h6 fw-bold">Analysis: A stunned Europe gathers to respond after Trump increases pressure over Greenland</h5>
+                                        <p class="small text-muted">European capitals coordinate their response to what many are calling economic blackmail</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="news-card">
+                                    <a href="#" class="text-decoration-none text-dark">
+                                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                             alt="Midterms analysis" 
+                                             class="img-fluid news-img medium-img mb-2">
+                                        <h5 class="h6 fw-bold">Analysis: The path to a Democratic Senate majority runs through these voters</h5>
+                                        <p class="small text-muted">Key demographic shifts that could determine control of Congress</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <aside class="col-lg-3">
+                    <!-- US Immigration Crackdown -->
+                    <div class="mb-4">
+                        <h3 class="section-title" style="color: #d9534f;">US IMMIGRATION CRACKDOWN</h3>
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="National Guard" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">1,500 soldiers on standby for possible Minnesota deployment, reports say, as state mobilizes National Guard</h5>
+                                <p class="small text-muted">Preparations underway amid fears of escalating immigration protests</p>
+                            </a>
+                        </div>
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Minneapolis protest" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">Far-right activist chased away by counterdemonstrators while leading small rally in Minneapolis</h5>
+                                <p class="small text-muted">Clashes erupt as opposing groups face off in the Midwest</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Historic Lunar Mission -->
+                    <div class="mb-4">
+                        <h3 class="section-title">HISTORIC LUNAR MISSION</h3>
+                        <div class="news-card">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Moon mission" 
+                                     class="img-fluid news-img mb-2">
+                                <h5 class="h6 fw-bold">4 astronauts will soon take an unprecedented path to the moon. But why aren't they landing?</h5>
+                                <p class="small text-muted">NASA's Artemis II mission prepares for lunar flyby in 2026</p>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Sections -->
+                    <div class="mb-4">
+                        <div class="sidebar-widget">
+                            <h5 class="fw-bold mb-3"><span style="color: #5bc0de;">AFRICA IN FOCUS</span></h5>
+                            <p class="small">Uganda's Museveni wins re-election as opposition leader remains at large</p>
+                            <a href="#" class="small text-danger">Read more →</a>
+                        </div>
+                        
+                        <div class="sidebar-widget mt-3">
+                            <h5 class="fw-bold mb-3"><span style="color: #5cb85c;">ART & STYLE</span></h5>
+                            <p class="small">How to actually find your personal style in 2026</p>
+                            <a href="#" class="small text-danger">Read more →</a>
+                        </div>
+                        
+                        <div class="sidebar-widget mt-3">
+                            <h5 class="fw-bold mb-3"><span style="color: #f0ad4e;">AUSTRALIAN OPEN</span></h5>
+                            <p class="small">Stan Wawrinka looks ahead to his final Australian Open</p>
+                            <a href="#" class="small text-danger">Read more →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Ad Space -->
+                    <div class="ad-container">
+                        <h6 class="text-muted mb-2">Advertisment</h6>
+                        <h5 class="fw-bold">Free ChatGPT Browser Extension</h5>
+                        <p class="small">ChatGPT Browser Plugin as your AI assistant on any page.</p>
+                        <button class="btn btn-success btn-sm">Open</button>
+                        <p class="small text-muted mt-2 mb-0">Ad Feedback</p>
+                    </div>
+                </aside>
             </div>
-          </div>
+        </section>
 
-          <!-- News Article 3 -->
-          <div class="card mb-3">
-            <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="News Image">
-            <div class="card-body">
-              <h5 class="card-title">Business: Market Updates</h5>
-              <p class="card-text">Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
-              <a href="#" class="btn btn-sm btn-primary">Read More</a>
+        <!-- Crime & Justice Section -->
+        <section class="container mb-5">
+            <h3 class="section-title">CRIME & JUSTICE</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Synagogue" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h5 fw-bold">Prayer books, a Moses sculpture and a holy horn are among items damaged or lost after alleged arson at Mississippi synagogue</h5>
+                            <p class="text-muted">Community mourns loss of sacred objects in suspected hate crime</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Supreme Court" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h5 fw-bold">Supreme Court agrees to decide if police can seek sweeping cellphone location data in investigations</h5>
+                            <p class="text-muted">Landmark privacy case could redefine digital Fourth Amendment rights</p>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
 
-        </main>
+        <!-- US Politics & Business Sections -->
+        <section class="container mb-5">
+            <div class="row g-4">
+                <!-- US Politics -->
+                <div class="col-md-6">
+                    <h3 class="section-title">US POLITICS</h3>
+                    <div class="news-card mb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                     alt="60 Minutes" 
+                                     class="img-fluid news-img mb-2">
+                                <span class="category-tag">EXCLUSIVE</span>
+                            </div>
+                            <h5 class="h6 fw-bold">'60 Minutes' is set to finally air the shelved 'Inside CECOT' segment tonight</h5>
+                            <p class="small text-muted">Controversial investigation into government surveillance program to air after months of delay</p>
+                        </a>
+                    </div>
+                    
+                    <div class="news-card mb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <h5 class="h6 fw-bold">Amid a culture war over trans athletes, Team USA's Chris Mosier says he'll stay the course</h5>
+                            <p class="small text-muted">Transgender triathlete speaks out against proposed sports bans</p>
+                        </a>
+                    </div>
+                    
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <h5 class="h6 fw-bold">No, Trump can't cancel the midterms. He's doing this instead</h5>
+                            <p class="small text-muted">Analysis of the administration's election strategy</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Business & Tech -->
+                <div class="col-md-6">
+                    <h3 class="section-title">BUSINESS & TECH</h3>
+                    <div class="news-card mb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="AI data center" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h6 fw-bold">Here's how AI data centers affect the electrical grid</h5>
+                            <p class="small text-muted">Massive energy demands of artificial intelligence raise concerns about power infrastructure</p>
+                        </a>
+                    </div>
+                    
+                    <div class="news-card mb-3">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Trade agreement" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h6 fw-bold">EU and South America's Mercosur bloc sign landmark free trade agreement</h5>
+                            <p class="small text-muted">Historic deal creates one of the world's largest free trade areas after years of negotiation</p>
+                        </a>
+                    </div>
+                    
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <h5 class="h6 fw-bold">Recent Trump investments reignite concerns around potential conflicts of interest</h5>
+                            <p class="small text-muted">Ethics experts question business dealings of former president's family trust</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Right Sidebar -->
-        <aside class="col-lg-3 d-none d-lg-block">
-          <h5>Trending</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Tech Stocks Rising</a></li>
-            <li><a href="#">Celebrity News</a></li>
-            <li><a href="#">Travel Tips</a></li>
-            <li><a href="#">Health Advice</a></li>
-          </ul>
-          <div class="mt-4">
-            <h5>Follow Us</h5>
-            <a href="#" class="text-dark fs-5 me-2"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="text-dark fs-5 me-2"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="text-dark fs-5 me-2"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="text-dark fs-5"><i class="bi bi-youtube"></i></a>
-          </div>
-        </aside>
+        <!-- Lifestyle & Culture Section -->
+        <section class="container mb-5">
+            <h3 class="section-title">LIFESTYLE & CULTURE</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Analog lifestyle" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h6 fw-bold">Tired of AI, people are committing to the analog lifestyle in 2026</h5>
+                            <p class="small text-muted">The growing movement to disconnect from digital overload</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Ralph Lauren" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h6 fw-bold">Gen Z loves Ralph Lauren. And the brand knows it</h5>
+                            <p class="small text-muted">How the iconic American fashion house is winning over younger consumers</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Pokemon robbery" 
+                                 class="img-fluid news-img mb-2">
+                            <div class="position-relative">
+                                <span class="video-duration"><i class="bi bi-play-fill me-1"></i>0:46</span>
+                            </div>
+                            <h5 class="h6 fw-bold">Armed robbers steal $100,000 in merch from Pokémon shop</h5>
+                            <p class="small text-muted">Daring heist targets rare trading cards and collectibles</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      </div>
-    </section>
+        <!-- CNN Shorts Section -->
+        <section class="container-fluid bg-dark text-white py-5 mb-5">
+            <div class="container">
+                <h2 class="mb-4">CNN Shorts <span class="trending-badge">TRENDING</span></h2>
+                <div class="row g-4">
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="cnn-shorts-card">
+                            <img src="https://images.unsplash.com/photo-1616469829941-c7200edec809?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Troops on standby">
+                            <div class="shorts-overlay">
+                                <h6 class="fw-bold mb-1">Frey reacts to troops on standby: "We will not be..."</h6>
+                                <small><i class="bi bi-play-circle me-1"></i>1:46</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="cnn-shorts-card">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Family protest">
+                            <div class="shorts-overlay">
+                                <h6 class="fw-bold mb-1">Family of 8 flees tear gas-filled SUV during protest</h6>
+                                <small><i class="bi bi-play-circle me-1"></i>1:59</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="cnn-shorts-card">
+                            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Iran protest">
+                            <div class="shorts-overlay">
+                                <h6 class="fw-bold mb-1">Protesters across several countries condemn Iran</h6>
+                                <small><i class="bi bi-play-circle me-1"></i>2:56</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="cnn-shorts-card">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Greenland rally">
+                            <div class="shorts-overlay">
+                                <h6 class="fw-bold mb-1">Greenlanders rally against Trump threats</h6>
+                                <small><i class="bi bi-play-circle me-1"></i>3:46</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="cnn-shorts-card">
+                            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Stranger Things">
+                            <div class="shorts-overlay">
+                                <h6 class="fw-bold mb-1">Finn Wolfhard's 'Stranger Things' co-stars surprise him</h6>
+                                <small><i class="bi bi-play-circle me-1"></i>5:06</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="cnn-shorts-card">
+                            <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Military training">
+                            <div class="shorts-overlay">
+                                <h6 class="fw-bold mb-1">Denmark's Arctic commander tells CNN training is expanding in Greenland</h6>
+                                <small><i class="bi bi-play-circle me-1"></i>1:27</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Call to Earth Section -->
+        <section class="container mb-5">
+            <h3 class="section-title">CALL TO EARTH</h3>
+            <div class="row g-4">
+                <div class="col-md-8">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1534188753412-5d4257b5c84c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Water conservation" 
+                                 class="img-fluid news-img mb-2">
+                            <h4 class="h5 fw-bold">He brought over 600 water bodies back to life. Now he's saving India's vanishing elephants</h4>
+                            <p class="text-muted">Conservationist's dual mission to restore ecosystems and protect wildlife corridors</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-4">
+                        <h5 class="fw-bold">Labeled 'husband eaters' after tiger attacks, these women are finding new purpose</h5>
+                        <p class="small text-muted">Survivors of big cat attacks create support network and conservation initiative</p>
+                        <a href="#" class="small text-danger">Read more →</a>
+                    </div>
+                    <div class="mb-4">
+                        <h5 class="fw-bold">Inside the abandoned airport being transformed into a $30 billion sustainable city</h5>
+                        <p class="small text-muted">Massive urban redevelopment project aims to create carbon-neutral metropolis</p>
+                        <a href="#" class="small text-danger">Read more →</a>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">First mission to bottom of deep-sea canyon reveals risks to wildlife</h5>
+                        <p class="small text-muted">Scientists document plastic pollution at unprecedented ocean depths</p>
+                        <a href="#" class="small text-danger">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- More from CNN Section -->
+        <section class="container mb-5">
+            <h3 class="section-title">MORE FROM CNN</h3>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Lee Byung-hun" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">Lee Byung-hun didn't plan for global domination (but it happened anyway)</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Minneapolis protest" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">Minneapolis family tear gassed after they were caught up in ICE protest</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Venezuela escape" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">Video of Machado's daring escape from Venezuela released</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Trump eating habits" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">RFK Jr.: Trump has the most 'unhinged' eating habits <span class="trending-badge">$13</span></h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Greenland future" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">Worried Greenlanders fear for future as Trump threatens US takeover</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1547981609-4b6bf67b7d46?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Japan Philippines pact" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">Japan and the Philippines sign a new defense pact as they face growing China aggression</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1547721064-da6cfb341d50?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Prehistoric wolf" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">Prehistoric wolf's gut frozen in time reveals an ice age giant</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Olympic path" 
+                                 class="img-fluid news-img mb-2">
+                            <h6 class="fw-bold">How killing time at a laundromat set Lily Zhang on a path to multiple Olympics</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
             
+            <!-- Science News -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <img src="https://images.unsplash.com/photo-1559253664-ca249d4608c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                         alt="Horse study" 
+                                         class="img-fluid news-img">
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="fw-bold">Horses really can smell our fear, new study finds</h5>
+                                    <p class="text-muted">Research confirms equines detect human emotional states through chemical signals</p>
+                                    <p class="small text-muted"><em>Based on data available through January 2026</em></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- International News -->
+        <section class="container mb-5">
+            <h3 class="section-title">INTERNATIONAL</h3>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Iran protester" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h6 fw-bold">Detained Iranian protester in good physical health after execution fears, family and rights group say</h5>
+                            <p class="small text-muted">Human rights organizations report on condition of activist previously facing death sentence</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="news-card">
+                        <a href="#" class="text-decoration-none text-dark">
+                            <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Plane wreckage" 
+                                 class="img-fluid news-img mb-2">
+                            <h5 class="h6 fw-bold">Indonesian authorities find wreckage of missing plane with 10 on board</h5>
+                            <p class="small text-muted">Search teams locate aircraft that disappeared over mountainous region three days ago</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script>
+        // Ensure DOM is loaded before fetching components
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('./components/header.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after component is loaded
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Fetch footer
+        fetch("./components/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
 
-
-
-<script src="./assets/js/script.js"></script>
-<div id="header"></div>
-<script>
-fetch('./components/header.html')
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById('header').innerHTML = html;
-
-    // Initialize the header JS after content is added
-    initHeader();
-  })
-  .catch(err => console.error('Error loading header:', err));
-</script>
-
-
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple script for live update timers
+        function updateTimestamps() {
+            const timeElements = document.querySelectorAll('.text-muted i.bi-clock');
+            timeElements.forEach(el => {
+                const parent = el.closest('.d-flex, .live-update');
+                if (parent) {
+                    const timeText = parent.querySelector('.small.text-muted, .text-muted');
+                    if (timeText && timeText.textContent.includes('Updated')) {
+                        // This would normally update with real time data
+                        console.log('Timestamp update triggered');
+                    }
+                }
+            });
+        }
+        
+        // Update every minute
+        setInterval(updateTimestamps, 60000);
+        
+        // Video play functionality
+        document.querySelectorAll('.video-duration, .cnn-shorts-card').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (!e.target.closest('a')) {
+                    const videoUrl = '#'; // This would be the actual video URL
+                    alert('Video player would launch here. In production, this would open a modal or redirect to video page.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
