@@ -3,6 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politics - News Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* --- General & Typography --- */
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #cc0000;
+            text-decoration: underline;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            bottom: 2px;
+            width: 4px;
+            background-color: #000;
+        }
+        
+        .section-divider {
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .article-link-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            list-style-type: none;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .article-link-list li:first-child {
+            padding-top: 0;
+        }
+        
+        .article-link-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .article-link-list-small li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            list-style-type: none;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        .article-link-list-small li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* --- Article & Card Styles --- */
+        .article-main-headline {
+            font-size: 2.2rem;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        .article-secondary-headline {
+            font-size: 1.25rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .article-tertiary-headline {
+            font-size: 1rem;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        .image-caption {
+            font-size: 0.75rem;
+            color: #6c757d;
+            text-align: right;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .video-overlay, .gallery-overlay {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        .gallery-overlay {
+            padding: 4px 8px;
+        }
+
+        /* --- Specific Section Styles --- */
+        .podcast-ad {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .podcast-ad img {
+            max-width: 150px;
+        }
+        .podcast-ad .btn-listen {
+            background-color: #000;
+            color: #fff;
+            border-radius: 20px;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+        .podcast-ad .btn-listen:hover {
+            background-color: #333;
+            text-decoration: none;
+            color: #fff;
+        }
+        .ad-feedback {
+            font-size: 0.7rem;
+            color: #6c757d;
+            text-align: right;
+            margin-top: 0.5rem;
+        }
+        
+        .small-card article {
+            margin-bottom: 1.5rem;
+        }
+        .small-card h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-top: 0.5rem;
+        }
+
+        .sport-ad-banner {
+            background-color: #CC0000;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sport-ad-banner .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 2px solid white;
+            padding: 0.2rem 0.5rem;
+        }
+        .sport-ad-banner .text {
+            font-size: 1.2rem;
+        }
+        .sport-ad-banner .btn-sport {
+            background-color: white;
+            color: #CC0000;
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            border-radius: 0;
+        }
+         .sport-ad-banner .btn-sport:hover {
+            background-color: #f0f0f0;
+            color: #CC0000;
+            text-decoration: none;
+         }
+         .ad-footer {
+             font-size: 0.7rem;
+             color: #6c757d;
+             padding: 0.25rem 0;
+         }
+         .ad-footer .ad-feedback-link {
+             float: right;
+         }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 991.98px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            .article-main-headline {
+                font-size: 1.8rem;
+            }
+            .right-column-lg {
+                margin-top: 2rem;
+            }
+            .sport-ad-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .sport-ad-banner .text {
+                margin: 1rem 0;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .small-card {
+                margin-bottom: 1rem;
+            }
+            .go-deeper-item {
+                margin-bottom: 2rem;
+            }
+        }
+
+    </style>
+
     <title>CNN Politics - Latest Political News and Analysis</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,15 +265,91 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
-    <!-- Header Section -->
-    <div id="header"></div>
 
-  <!-- all contante of the pagse -->
-    <main>
-            
-    </main>
+    <div id="header"></div>
+    <div class="container my-4">
+
+
+
+        <main>
+            <!-- LATEST HEADLINES & ANALYSIS/VIDEOS SECTION -->
+            <section class="row section-divider pt-3 mt-3">
+                <!-- Left Column -->
+                <div class="col-lg-8">
+                    <h2 class="section-title">Latest Headlines</h2>
+                    <article>
+                        <a href="#">
+                            <div class="image-container">
+                                <img src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2195166979.jpg?c=original&q=w_860,c_fill/f_avif" class="img-fluid" alt="Protesters holding a 'March for Life' banner.">
+                            </div>
+                            <span class="image-caption">Dominic Gwinn/AFP/Getty Images</span>
+                            <h3 class="article-main-headline">'Mr. President, it's now time': Social conservatives beg Trump for abortion pill crackdown</h3>
+                        </a>
+                    </article>
+                    <ul class="list-unstyled article-link-list mt-4">
+                        <li><a href="#">Philadelphia sues Trump administration over removal of long-standing slavery exhibit from historic park</a></li>
+                        <li><a href="#">FEMA halts terminations of disaster workers as agency prepares for massive winter storm</a></li>
+                        <li><a href="#">Takeaways from former special counsel Jack Smith's public hearing</a></li>
+                        <li><a href="#">'F**k yourself': Former MPD officer who was beaten during Jan. 6 riot tells GOP lawmaker</a></li>
+                        <li><a href="#">New ICE policy allows officers to enter homes without a judge's warrant. Here's what experts say</a></li>
+                        <li><a href="#">Trump and Vance are suddenly acknowledging ICE 'mistakes'</a></li>
+                        <li><a href="#">Federal judge appears skeptical that Trump has legal authority to proceed with White House ballroom</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-lg-4 right-column-lg">
+                    <h2 class="section-title">Analysis</h2>
+                    <article>
+                        <a href="#">
+                           <div class="image-container">
+                                <img src="https://media.cnn.com/api/v1/images/stellar/prod/190821104523-01-trump-departs-white-house-0821.jpg?q=x_0,y_0,h_1688,w_3000,c_crop/h_281,w_500" class="img-fluid" alt="Donald Trump walking towards a helicopter.">
+                            </div>
+                            <h4 class="article-secondary-headline mt-2">Trump's latest TACO moment puts his increasingly erratic temperament in the spotlight</h4>
+                        </a>
+                    </article>
+                    <ul class="list-unstyled article-link-list-small mt-3">
+                        <li><a href="#">Trump insults allies and predecessors with his own view of history</a></li>
+                        <li><a href="#">Trump says he'll 'acquire' Greenland. Here's what the Constitution says</a></li>
+                        <li><a href="#">Trump's Davos hosts might abhor him -- but he's worth listening to</a></li>
+                        <li><a href="#">Europe may need to adopt Trump's brass-knuckle methods to save Greenland</a></li>
+                        <li><a href="#">Who can save NATO from Trump as he escalates bid to grab Greenland?</a></li>
+                        <li><a href="#">No, Trump can't cancel the midterms. He's doing this instead</a></li>
+                        <li><a href="#">What is the Insurrection Act?</a></li>
+                    </ul>
+
+                    <div class="podcast-ad">
+                        <span class="section-title">A CNN Podcast</span>
+                        <img src="https://www.cnn.com/audio/podcasts/all-there-is-with-anderson-cooper/assets/images/cover.jpg" alt="All There Is with Anderson Cooper podcast cover" class="my-3">
+                        <a href="#" class="btn-listen">Listen now</a>
+                        <p class="small text-muted mt-2 mb-0">wherever you get your podcasts</p>
+                        <div class="ad-feedback">Advertisement <a href="#" class="text-muted">Ad Feedback</a></div>
+                    </div>
+
+                    <h2 class="section-title">Latest Videos</h2>
+                    <article class="mb-4">
+                        <a href="#">
+                            <div class="image-container">
+                                <img src="https://i.imgur.com/uRkC9lZ.png" class="img-fluid" alt="Video thumbnail of two people in a news segment.">
+                                <div class="video-overlay"><i class="fa-solid fa-play fa-xs me-1"></i> 1:50</div>
+                            </div>
+                            <h4 class="article-secondary-headline mt-2">Lawyer for arrested anti-ICE church protestors says the government's lawyers seemed 'completely unprepared'</h4>
+                        </a>
+                    </article>
+                     <article>
+                        <a href="#">
+                            <div class="image-container">
+                                <img src="https://i.imgur.com/tH31QYV.png" class="img-fluid" alt="Video thumbnail of two different people in a news segment.">
+                                <div class="video-overlay"><i class="fa-solid fa-play fa-xs me-1"></i> 4:50</div>
+                            </div>
+                            <h4 class="article-secondary-headline mt-2">Pastor and friend of family whose 5-year-old was detained by ICE speaks out: 'ICE is acting worse than the cartels in Mexico'</h4>
+                        </a>
+                    </article>
+                </div>
+            </section>
 
     <!-- Footer Section -->
     <div id="footer"></div>
@@ -48,6 +378,7 @@
         })
         .catch(error => console.error('Error loading footer:', error));
     </script>
-
+        </main>
+    </div>
 </body>
 </html>

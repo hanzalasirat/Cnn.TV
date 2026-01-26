@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+.market-row {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.market-col {
+  border-right: 1px solid #ddd;
+  padding: 15px;
+}
+.market-col:last-child {
+  border-right: none;
+}
+.market-title {
+  font-weight: 700;
+}
+.market-table td {
+  padding: 6px 0;
+}
+.fear-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.gauge {
+  width: 90px;
+  height: 45px;
+  border-radius: 90px 90px 0 0;
+  background: #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+.gauge::after {
+  content: "";
+  width: 4px;
+  height: 45px;
+  background: #000;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: rotate(-10deg);
+  transform-origin: bottom;
+}
+.news-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.news-list li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#first_text:hover{
+    text-decoration: underline;
+}
+#image:hover{
+    opacity: 80%;
+}
+</style>
+</head>
+
+<body>
+<div id="header"></div>
+<div class="container market-row">
+  <div class="row">
+
+    <!-- MARKETS -->
+    <div class="col-lg-4 market-col">
+      <div class="market-title mb-2">
+        Markets <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+      <table class="table table-sm market-table mb-0">
+        <tr>
+          <td>DOW</td>
+          <td>49,167.33</td>
+          <td class="text-danger">0.44% <i class="fa-solid fa-caret-down"></i></td>
+        </tr>
+        <tr>
+          <td>S&P 500</td>
+          <td>6,930.34</td>
+          <td class="text-success">0.25% <i class="fa-solid fa-caret-up"></i></td>
+        </tr>
+        <tr>
+          <td>NASDAQ</td>
+          <td>23,605.18</td>
+          <td class="text-success">0.72% <i class="fa-solid fa-caret-up"></i></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- FEAR & GREED -->
+    <div class="col-lg-4 market-col">
+      <div class="market-title mb-2">
+        Fear & Greed Index <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+      <div class="fear-box">
+        <div class="gauge"></div>
+        <div>
+          <strong>Neutral sentiment</strong><br>
+          is driving the US market
+        </div>
+      </div>
+    </div>
+
+    <!-- LATEST NEWS -->
+    <div class="col-lg-4 market-col">
+      <div class="market-title mb-2">
+        Latest Market News <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+      <ul class="list-unstyled news-list mb-0">
+        <li>Trump’s Greenland saga has left lasting uncertainty on Wall Street</li>
+        <li>Democratic senators sound alarm on Pentagon backing firms</li>
+        <li>Like digging your own professional grave: translators lose work</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="row mt-3">
+          <div class="col-lg-6 ">
+            <div class="first_image">
+                <img id="image" style="border-radius: 10px; height: 380px;" src="https://media.cnn.com/api/v1/images/stellar/prod/16-tiktokapp-bej-20260122212850523.JPG?c=original&q=w_860,c_fill/f_avif" class="w-100"  alt="">
+                <h5 class="my-4" id="first_text"><b>The deal to secure TikTok’s future in the US has finally closed</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;  height: 90px; " src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2257418516.jpg?c=original&q=w_1202,c_fill/f_avif" alt="">
+                <h6 class="px-3" id="first_text">Trump’s Greenland saga has left lasting uncertainty on Wall Street</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;  height: 90px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2224619439.jpg?c=original&q=w_860,c_fill/f_avif" alt="">
+                <h6 class="px-3" id="first_text">Democratic senators sound the alarm on Pentagon backing firms linked to Donald Trump Jr.</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;  height: 90px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2023840777.jpg?c=original&q=w_860,c_fill/f_avif"  alt="">
+                <h6 class="px-3" id="first_text">Like digging ‘your own professional grave’: The translators grappling with losing work to AI</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;  height: 90px;" src="https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-2256719323.jpg?c=original&q=w_860,c_fill/f_avif"  alt="">
+                <h6 class="px-3" id="first_text">Trump’s ‘run it hot’ economic strategy could work — but it’ll cost Americans dearly</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px;  height: 90px;" src="https://media.cnn.com/api/v1/images/stellar/prod/2025-08-03t050304z-1766148255-rc2bzfagq3vw-rtrmadp-3-theranos-holmes.jpg?c=original&q=w_860,c_fill/f_avif" alt="">
+                <h6 class="px-3" id="first_text">Elizabeth Holmes asks Trump to let her out of prison early</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px; height: 90px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2256821104.jpg?c=original&q=w_860,c_fill/f_avif"  alt="">
+                <h6 class="px-3" id="first_text">Jamie Dimon hesitates to criticize Trump… except for one plan he says will create ‘an economic disaster’</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px; height: 90px; " src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2254449941.jpg?c=original&q=w_860,c_fill/f_avif"  alt="">
+                <h6 class="px-3" id="first_text">Trump says rare earths are part of his Greenland deal. It’s ‘completely bonkers’</h6>
+            </div>
+
+             <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <img id="image" style="border-radius: 4px; height: 90px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2248614374.jpg?c=original&q=w_860,c_fill/f_avif" alt="">
+                <h6 class="px-3" id="first_text">Consumer spending remained strong during the holiday season despite elevated prices</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/11751612-28529113-generated-thumbnail.jpg?c=16x9&q=w_860,c_fill/f_webp" class="w-100" alt="">
+              <h5><b>Trump sues JPMorgan and Jamie Dimon for dropping him as a customer after Jan. 6 attack</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Broncos beat the Bills in OT, but lose their star QB, and Seattle mauls San Francisco in NFL playoffs action</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">New York Giants hire John Harbaugh as head coach</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Senegal wins Africa Cup of Nations after chaotic final against host Morocco</h6>
+            </div>
+            
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Air Force suspends men’s basketball coach Joe Scott indefinitely amid cadet-athlete treatment probe</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">More than a dozen NCAA basketball players charged over rigged games, prosecutors say</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">At 45, Venus Williams sets record at Australian Open but falls in the 1st round</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Bo Nix suffers broken ankle while leading Broncos to playoff win over the Bills, out for the season</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Ole Miss QB Trinidad Chambliss sues NCAA for extra year of eligibility</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Ole Miss QB Trinidad Chambliss sues NCAA for extra year of eligibility</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Ole Miss QB Trinidad Chambliss sues NCAA for extra year of eligibility</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Bo Nix suffers broken ankle while leading Broncos to playoff win over the Bills, out for the season</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">At 45, Venus Williams sets record at Australian Open but falls in the 1st round</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Ole Miss QB Trinidad Chambliss sues NCAA for extra year of eligibility</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-3">
+              
+            </div>
+
+            <div class="first_image pb-3">
+              
+            </div>
+
+            <div class="first_image pb-3">
+             
+            </div>
+          </div>
+  </div>
+
+  <div class="row pt-3">
+    <h1 class="py-4"><b>What to watch</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/tt-16x9.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>TikTok secures its future in the US</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/11751612-28529113-generated-thumbnail.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>'What the hell else you want me to say?': Chase CEO's tense exchange over Trump question</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/fmf.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>The global race for critical minerals — and the Gulf’s new role
+</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1252560835.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Taco Bell is winning at affordability. CNN gets a peek inside its test kitchen to find out how
+</b></h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+          <div class="col-lg-6 ">
+            <div class="first_image">
+              <h4>In case you missed it</h4>
+                <img id="image" style="border-radius: 10px; height: 380px;" src="https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-2244278454.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100"  alt="">
+                <h5 class="my-4" id="first_text"><b>Want to understand the K-shaped economy? Go fly on an airplane</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Wholesale inflation remained stubbornly higher in November
+</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Retail sales rose more than expected in November</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">China notches historic $1.2 trillion trade surplus despite Trump tariffs</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3 mt-5">
+            <div class="first_image">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2246141950.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+              <h5><b>The BBC says it will ask for dismissal of Trump’s lawsuit</b></h5>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Broncos beat the Bills in OT, but lose their star QB, and Seattle mauls San Francisco in NFL playoffs action </h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">New York Giants hire John Harbaugh as head coach</h6>
+            </div>
+
+            <div class="first_image d-flex py-3" style="border-top: 1px solid rgb(196, 196, 196);">
+                <h6 class="px-3" id="first_text">Senegal wins Africa Cup of Nations after chaotic final against host Morocco</h6>
+            </div>
+            
+            
+          </div>
+  </div>
+
+
+  <div class="row">
+            <h1 style="font-weight: bolder;">More Video</h1>
+          <div class="col-lg-6">
+            <div class="first_image">
+                <img id="image" style="border-radius: 20px; height: 400px;" src="https://media.cnn.com/api/v1/images/stellar/prod/screenshot-2026-01-17-at-11-45-40-am.png?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+                <h5 class="my-4" id="first_text"><b>Professor on predictive market bets: 'This type of insider trading may or may not be legal'</b></h5>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-4">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/116505-dintaifungsoupdumplings-clean-16x9-thumb.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 id="first_text"><b>How to make Din Tai Fung's iconic soup dumplings</b></h5>
+            </div>
+
+            <div class="first_image py-4">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/vy-powell-replacement.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 id="first_text"><b>Treasury Secretary says Trump could announce pick for the next Fed chair next week</b></h5>
+            </div>
+
+            
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-3">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/videothumbnails/44172126-33740325-generated-thumbnail.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 class="py-3" id="first_text"><b>Why CEOs are worried about Trump's Greenland threats</b></h5>
+            </div>
+
+            <div class="first_image py-">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/snlwolfhardnbc1.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 class="pt-3" id="first_text"><b>Finn Wolfhard’s ‘Stranger Things’ co-stars surprise him on ‘SNL’</b></h5>
+            </div>
+          </div>
+  </div>
+
+
+  <div class="row pt-3">
+    <h1 class="py-4"><b>Success</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-875247422.jpg?c=16x9&q=h_653,w_1160,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>It’s Tax Day. Still haven’t filed? Tips on how to get an extension and more</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/240401155521-applying-for-job-with-no-experience.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Not using these job interview tips can reduce your chances of getting that job</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-1397496424.jpg?c=16x9&q=h_653,w_1160,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text">Smart moves to make when the Fed starts cutting rates<b>
+</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2147536598.jpg?c=16x9&q=h_653,w_1160,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Early signs of dementia can show in your finances
+
+</b></h5>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row pt-3">
+    <h1 class="py-4"><b>Tech</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/shutterstock-editorial-15565107e.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>ChatGPT to start showing users ads based on their conversations</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2255689211.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>No doctor’s appointments or Google Maps: Why Verizon’s massive outage was such a big deal</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap25319842456981.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Verizon says it’s fixed the massive outage that left many without phone calling and data services
+</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/shutterstock-editorial-15565107e.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Taco Bell is winning at affordability. CNN gets a peek inside its test kitchen to find out how
+</b></h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pt-3">
+    <h1 class="py-4"><b>Media</b></h1>
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2249496239.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Netflix revises its offer for Warner Bros. Discovery. Now, it’s all cash
+</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2253294263.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>‘60 Minutes’ is finally airing the shelved ‘Inside CECOT’ segment
+</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px;  height: 175px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap25271811134814.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text"><b>Pentagon moves to turn independent military outlet into a ‘mouthpiece,’ advocates warn
+</b></h5>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="first-image">
+        <img id="image" style="border-radius: 4px; height: 170px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap22195153688919.jpg?c=original&q=w_860,c_fill/f_avif" class="w-100" alt="">
+        <h5 class="py-3" id="first_text">‘Tip of the iceberg’: The FBI search of a reporter’s home has newsrooms bracing for more
+<b>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+            <h1 style="font-weight: bolder;">More Video</h1>
+          <div class="col-lg-6">
+            <div class="first_image">
+                <img id="image" style="border-radius: 20px; height: 400px;" src="https://media.cnn.com/api/v1/images/stellar/prod/mapp-rover-remotely-operated-over-lte-network-copy.jpg?c=16x9&q=h_653,w_1160,c_fill/f_avif" class="w-100" alt="">
+                <h5 class="my-4" id="first_text"><b>Streaming and texting on the Moon: Nokia and NASA are taking 4G into space</b></h5>
+            </div>
+            <div class="first_image ">
+              <h6 id="first_text">TThe electric car revolution is on track, says IEA</h6>
+            </div>
+
+            <div class="first_image ">
+              <h6 id="first_text">Digital humans: the relatable face of artificial intelligence?</h6>
+            </div>
+
+            <div class="first_image ">
+              <h6 id="first_text">Treasury Secretary says Trump could announce pick for the next Fed chair next week</h6>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-4">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/ap25090705051953.jpg?c=original&q=w_1202,c_fill/f_avif" class="w-100" alt="">
+              <h5 id="first_text"><b>NASA astronaut Suni Williams retires months after return from troubled mission to orbit</b></h5>
+            </div>
+
+            <div class="first_image ">
+              <h6 id="first_text">Treasury Secretary says Trump could announce pick for the next Fed chair next week</h6>
+            </div>
+
+            <div class="first_image ">
+              <h6 id="first_text">Treasury Secretary says Trump could announce pick for the next Fed chair next week</h6>
+            </div>
+
+            <div class="first_image ">
+              <h6 id="first_text">Treasury Secretary says Trump could announce pick for the next Fed chair next week</h6>
+            </div>
+
+            
+          </div>
+
+          <div class="col-lg-3">
+            <div class="first_image pb-3">
+              <img id="image" style="border-radius: 4px;" src="https://media.cnn.com/api/v1/images/stellar/prod/tt-16x9.jpg?c=16x9&q=w_1280,c_fill" class="w-100" alt="">
+              <h5 class="py-3" id="first_text"><b>TikTok secures its future in the US
+</b></h5>
+            </div>
+
+            <div class="first_image py-">
+              <h6  id="first_text">Finn Wolfhard’s ‘Stranger Things’ co-stars surprise him on ‘SNL’</h6>
+            </div>
+
+            <div class="first_image py-">
+              <h6 class="pt-1" id="first_text">Finn Wolfhard’s ‘Stranger Things’ co-stars surprise him on ‘SNL’</h6>
+            </div>
+          </div>
+  </div>
+</div>
+
+
+<!-- /////////////............footer......... -->
+
+<footer id="">
+
+</footer>
+    <script>
+        // Ensure DOM is loaded before fetching components
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../components/header.html')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Initialize header functionality after component is loaded
+                    if (typeof initHeader === 'function') {
+                        initHeader();
+                    }
+                })
+                .catch(error => console.error('Error loading header:', error));
+        });
+    </script>
+    <script src="../assets/js/script.js"></script>
+    <script>
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+    </script>
+
+</body>
+</html>
